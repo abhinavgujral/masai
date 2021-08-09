@@ -46,7 +46,34 @@ margin:10px;
 
 }
 .heading2{
-    font-size: xx-large;
+    font-size:60px;
+    color:darkblue;
+    font-weight: bolder;
+    text-align: center;
+    margin:30px;
+}
+.taskbar{
+    width:50%;
+    margin:auto;
+   display: flex;
+}
+.taskbar>div{
+    flex-grow:1;
+    border-radius: 4px; color:darkblue;
+    height: 30px;
+    margin:20px;
+    padding-top: 5px;
+    text-align: center;
+}
+.main_card{
+    display: flex;
+    max-width:100%;
+}
+.card{
+    margin:20px;
+    flex-grow: 1;
+    box-sizing: border-box;
+
 }
 </style>
 </head>
@@ -57,9 +84,29 @@ margin:10px;
     <div class="scholar two"><img class="scholaricon" src=" https://via.placeholder.com/400x300"></img><div class="scholartxt">Scholarship<br><span>Available</span></div></div>
     <div class="scholar three"><img class="scholaricon" src=" https://via.placeholder.com/400x300"></img><div class="scholartxt">Scholarship<br><span>Available</span></div></div>
 </div>
+
+
 <div>
     <div class="heading2">Popular Program</div>
+    <div class="taskbar">
+        <div style="background-color: aqua;">Graduate</div>
+        <div>Post Graduate</div>
+        <div>Phd. Scholarship</div>
+        <div>training</div>
+    </div>
 </div>
+
+
+<div class="main_card">
+    <div class="card">
+        <img src=" https://via.placeholder.com/400x300"></img>
+        <br>
+       <p> Agriculture</p>
+       <div class="cardtxthead"> Chemical Engineering</div>
+       <div>Loreum ipsum sit amet, idon't know what to write here but now i am writing something and filling the space to make it look good</div>
+    </div>
+</div>
+
     </div>
 </body>
 </html>
