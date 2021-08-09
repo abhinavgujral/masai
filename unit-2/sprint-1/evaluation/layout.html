@@ -92,15 +92,53 @@
             grid-area:box6;
         }
 
+
+        @media only screen and (max-width:600px){
+
+            .top_cont{
+                grid-template:"heading"
+                                "XXL"
+                                "Eurostar"
+                                "ahm";
+            }
+
+        
+        .lowercont{
+            grid-template: "heading"
+            "box1" "box2" "box3" "box4" "box5" "box6";
+        }
+        }
+
+/*@media only screen and(min: width 600px){
 .top_cont{
+    grid-template: "heading heading" 
+                      "ahm XXL"
+                     "Eurostar  null";
+}
+.lowercont{
+        
+        grid-template:"heading heading"
+                       "box1 box2"
+                       "box3 box4"
+                       "box5 box6";
+}
+}
+
+
+/*@media only screen and(min-width: 992px;){
+.top_cont{
+ 
     grid-template:"heading heading heading"
                    "Eurostar ahm XXL";
     }
     .lowercont{
-        grid-template:"box1 box2 box3"
+        
+        grid-template:"heading heading heading"
+                       "box1 box2 box3"
                        "box4 box5 box6";
     }
-
+}
+*/
          
     </style>
 </head>
