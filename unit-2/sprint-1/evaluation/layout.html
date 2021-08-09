@@ -53,7 +53,9 @@
             grid-area: XXL;
         }
         .lowercont{
-            
+            display:grid;
+            grid-gap: 20px;
+            padding: 20px;
         }
         .lowcard{
             border:1px solid black;
@@ -63,12 +65,32 @@
             font-size: large;
             margin:10px;
         }
-
+        .box1{
+            grid-area:box1;
+        }
+        .box2{
+            grid-area:box2;
+        }
+        .box3{
+            grid-area:box3;
+        }
+        .box4{
+            grid-area:box4;
+        }
+        .box5{
+            grid-area:box5;
+        }
+        .box6{
+            grid-area:box6;
+        }
 
 .top_cont{
     grid-template:"heading heading heading"
                    "Eurostar ahm XXL";
-
+    }
+    .lowercont{
+        grid-template:"box1 box2 box3"
+                       "box4 box5 box6";
     }
 
          
@@ -99,10 +121,35 @@
         <div class="link">Read more-></div></div>
         </div>
     </div>
- <div class="lowercont top-cont">
+ <div class="lowercont">
 
 <div class="heading">EXPLORE SOLUTONS</div>
-<div class="lowcard">
+<div class="lowcard box1">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+<div class="lowcard box2">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+<div class="lowcard box3">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+<div class="lowcard box4">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+<div class="lowcard box5">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+<div class="lowcard box6">
     <div class="content">Headless CMS</div>
     <div class="lowercontent">Building cutting edge web expereinces</div>
     <div class="arrow">-></div>
