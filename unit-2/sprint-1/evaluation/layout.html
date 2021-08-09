@@ -11,22 +11,109 @@
             grid-gap: 20px;
             padding: 20px;
         }
+        .card{
+            height:300px;
+            border: 1px solid black;
+        }
+
         .card>img{
-            max-width:100%;
+            width:100%;
+            height: 200px;
 
         }
-        .card>.card_sub_heading{
-            color:gray;   
+        .heading{
+            color:gray;
+            font-weight:700;
+           
+        }
+        .card>.sub_heading{
+            color:gray;
+            margin:10px;   
+        }
+        .card >.content{
+            font-weight: bold;
+            font-size: large;
+            margin:10px;
+
+        }
+        .card>.link{
+            color:blue;
+            margin:10px;
+        }
+        .heading{
+            grid-area: heading;
+                   }
+        .one{
+            grid-area: Eurostar;
+        }
+        .two{
+            grid-area: ahm;
+        }
+        .three{
+            grid-area: XXL;
+        }
+        .lowercont{
+            
+        }
+        .lowcard{
+            border:1px solid black;
+        }
+        .lowcard>.content{
+            font-weight: bold;
+            font-size: large;
+            margin:10px;
         }
 
 
+.top_cont{
+    grid-template:"heading heading heading"
+                   "Eurostar ahm XXL";
+
+    }
+
+         
     </style>
 </head>
 <body>
     <div class="top_cont">
         <div class="heading">CHALLENGES SOLVED WITH SANITARY</div>
-        <div class="card one"><img src="https://via.placeholder.com/400x400"></img></div>
-        <div class="card_sub_heading">Eurostar</div>
+        <div class="card">
+       
+        <div class="card one"><img src="https://via.placeholder.com/400x200"></img>
+        <div class="sub_heading">Eurostar</div>
+        <div class="content">A better digital Experience for million of travellers</div>
+        <div class="link">Read more-></div></div>
+        </div>
+        <div class="card">
+        
+        <div class="card two"><img src="https://via.placeholder.com/400x200"></img>
+        <div class="sub_heading">ahm</div>
+        <div class="content">A better digital Experience for million of travellers</div>
+        <div class="link">Read more-></div></div>
+           </div>
+           <div class="card">
+        
+        <div class="card three"><img src="https://via.placeholder.com/400x200"></img>
+        <div class="sub_heading">XXl</div>
+        <div class="content">A better digital Experience for million of travellers</div>
+        <div class="link">Read more-></div></div>
+        </div>
     </div>
+ <div class="lowercont top-cont">
+
+<div class="heading">EXPLORE SOLUTONS</div>
+<div class="lowcard">
+    <div class="content">Headless CMS</div>
+    <div class="lowercontent">Building cutting edge web expereinces</div>
+    <div class="arrow">-></div>
+</div>
+
+
+ </div>
+     
+
+
+
+
 </body>
 </html>
