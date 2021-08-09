@@ -7,38 +7,59 @@
     <title>index</title>
 <style>
 .scholarshipbox{
-    height: 100%;
-display: flex;;
+    max-width: 80%;
+    display: flex;
+    margin:auto;
 }
-.scholar1{
+.scholar{
 flex-grow:1;
-background-color: yellow;
-height: 150px;
+height: 120px;
+border-radius: 10px;
+margin:10px;
 }
-.scholar2{
-    flex-grow: 2;
-    background-color: blue;
-    height: 150px;
+.one{
+    background-color: yellow;
 }
-.scholar3{
-    flex-grow: 1;
+.two{
+        background-color: blue;
+    
+}
+.three{
     background-color: aqua;
-    height: 150px;
+
+}
+.scholartxt{
+    color :white;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 20px;
+}
+.scholartxt>span{
+    font-size: large;
+    font-weight: 900;
 }
 .scholaricon{
-    height:75px;
+    height:80px;
+    float: left;
+    border-radius:50%;
+    margin:20px;
 
+}
+.heading2{
+    font-size: xx-large;
 }
 </style>
 </head>
 <body>
     <div >
 <div class="scholarshipbox">
-    <div class="scholar1"><img class="scholaricon" src=" https://via.placeholder.com/400x300"><div class="scholartxt">Scholarship</div></img></div>
-    <div class="scholar2"></div>
-    <div class="scholar3"></div>
+    <div class="scholar one"><img class="scholaricon" src=" https://via.placeholder.com/400x300"></img><div class="scholartxt">Scholarship<br><span>Available</span></div></div>
+    <div class="scholar two"><img class="scholaricon" src=" https://via.placeholder.com/400x300"></img><div class="scholartxt">Scholarship<br><span>Available</span></div></div>
+    <div class="scholar three"><img class="scholaricon" src=" https://via.placeholder.com/400x300"></img><div class="scholartxt">Scholarship<br><span>Available</span></div></div>
 </div>
-
+<div>
+    <div class="heading2">Popular Program</div>
+</div>
     </div>
 </body>
 </html>
