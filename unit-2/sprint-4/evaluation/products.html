@@ -27,9 +27,12 @@
 </head>
 <body>
     <h1>Products</h1>
-    <button id="filterbutton">filter</button>
-    <br><br>
-<div id="main_cont">
+    <div id="main_cont">
+
+    <button onclick="applyfilter()"id="filterbutton">filter</button>
+    <div></div>
+    <div></div>
+</div>
     
 </div>
 </body>
@@ -46,10 +49,10 @@
     
     const products_json=JSON.stringify(products_arr);
     localStorage.setItem("products",products_json);
-  
-    function showProducts(){
-        let products_json=localStorage.getItem("products");
-        let products_arr=JSON.parse(products_json);
+    //let products_json=localStorage.getItem("products");
+      //  let products_arr=JSON.parse(products_json);
+    function showProducts(products_arr){
+        
         let div=document.getElementById("main_cont");
         for(var i=0;i<products_arr.length;i++){
         let div_cont=document.createElement("div");
@@ -58,8 +61,8 @@
         let p_price=document.createElement('p');
         p_price.innerText="₹"+products_arr[i].price;
         let image=document.createElement("img");
-        image.addEventListener("mouseover",image_hover_in);
-        image.addEventListener("mouseout",image_hover_out);
+      //  image.addEventListener("mouseover",image_hover_in);
+        //image.addEventListener("mouseout",image_hover_out);
         image.src=products_arr[i].image;
         let btn=document.createElement('button');
         btn.innerText="Add To Cart";
@@ -70,7 +73,18 @@
         div.append(div_cont);
     }
 }
-showProducts();
+function applyfilter(){
+    console.log(this);
+    console.log("filter");
+    let products_json=localStorage.getItem("products");
+    let products_arr=JSON.parse(products_json);
+    var filter_products=products_arr.filter(function(item){
+        return item.price>140;
+       
+        
+    });showProducts(filter_products);
+}
+showProducts(products_arr);
 function addtocart(){
 
 }
