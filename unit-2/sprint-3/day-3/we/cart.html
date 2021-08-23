@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        width:5%;
+    }
+</style>
+
+<body>
+    <h1>Cart Page</h1>
+    <h1 id="total"></h1>
+    <div id="data"></div>
+    <button onclick="makePayment()">Make Payment</button>
+</body>
+</html>
+<script>
+    let cart_data=JSON.parse(localStorage.getItem('cart'));
+    console.log("cart_data",cart_data);
+var total=0;
+    var div_data=document.getElementById('data');
+    cart_data.forEach(function(product){
+
+    var div=document.createElement('div');
+    var p_name=document.createElement('p');
+    p_name.innerText=product.name;
+    var p_price=document.createElement('p');
+     total=total+Number(product.price);
+    p_price=document.innerText="₹"+product.price;
+    var image=document.createElement("img");
+    image.src=product.image;
+    div.append(image,p_name,p_price);
+    div_data.append(div);
+
+
+});
+let total_h1=document.getElementById("total");
+total_h1.innerHTML='Total Price'+'₹'+total;//`total price-${total}`;
+    console.log("total",+total);
+    
+    function makePayment(){
+        setTimeout(function(){alert("Payment successful");
+    },3000);
+   
+    }
+    //translate x properties
+</script>
