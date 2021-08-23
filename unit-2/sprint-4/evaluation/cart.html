@@ -10,7 +10,7 @@
     
 <script>
     let cart_data=JSON.parse(localStorage.getItem('cart_items'));
-   
+   var total=0;
     var main_cont=document.createElement("div");
         main_cont.setAttribute('id','main_cont');
         for(var i=0;i<cart_data.length;i++){
@@ -20,10 +20,11 @@
         let p_price=document.createElement('p');
 
         p_price.innerText="₹"+cart_data[i].price;
+        total=total+Number(cart_data[i].price);
         let image=document.createElement("img");
       //  image.addEventListener("mouseover",image_hover_in);
         //image.addEventListener("mouseout",image_hover_out);
-        image.src=products_arr[i].image;
+        image.src=cart_data[i].image;
 
         div_cont.append(image,p_name,p_price);
         main_cont.append(div_cont);
