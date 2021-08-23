@@ -5,31 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #main_cont{
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-gap: 10%;
+            
+        }
+        #main_cont >div{
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+        }
+        img{
+            width:40%;
+        }
+        #filterbutton{
+            float:right;
+        }
+        #selected{
+            float:right;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Items In Cart</h1>
 <script>
     let cart_data=JSON.parse(localStorage.getItem('cart_items'));
    var total=0;
+   cart_data.forEach(function(cart_data){
     var main_cont=document.createElement("div");
         main_cont.setAttribute('id','main_cont');
-        for(var i=0;i<cart_data.length;i++){
+        
         let div_cont=document.createElement("div");
         let p_name=document.createElement('p');
-        p_name.innerText=cart_data[i].name;
+        p_name.innerText=cart_data.name;
         let p_price=document.createElement('p');
-
-        p_price.innerText="₹"+cart_data[i].price;
-        total=total+Number(cart_data[i].price);
+        p_price.innerText="₹"+cart_data.price;
+        total=total+cart_data.price;
         let image=document.createElement("img");
       //  image.addEventListener("mouseover",image_hover_in);
         //image.addEventListener("mouseout",image_hover_out);
-        image.src=cart_data[i].image;
+        image.src=cart_data.image;
 
         div_cont.append(image,p_name,p_price);
         main_cont.append(div_cont);
         document.body.append(main_cont);
-        }
+    });
+        
+    var p_total=document.createElement('p');
+    p_total.innerText="total= ₹"+total;
+    document.body.append(p_total);
+    
+    function promo(){
+        var a=document.getElementById('promo').value;
+        if(a==="masai30"){
+        alert("promo code applied");
+        p_total.innerText="discounted total= ₹"+total*0.70;
+    }else 
+    alert("try again");
+}
+
 </script>
 </body>
 

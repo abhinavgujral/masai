@@ -59,25 +59,26 @@
         
         var main_cont=document.createElement("div");
         main_cont.setAttribute('id','main_cont');
-        for(var i=0;i<products_arr.length;i++){
+       // for(var i=0;i<products_arr.length;i++){
+            products_arr.forEach(function(products_arr){
         let div_cont=document.createElement("div");
         let p_name=document.createElement('p');
-        p_name.innerText=products_arr[i].name;
+        p_name.innerText=products_arr.name;
         let p_price=document.createElement('p');
-        p_price.innerText="₹"+products_arr[i].price;
+        p_price.innerText="₹"+products_arr.price;
         let image=document.createElement("img");
       //  image.addEventListener("mouseover",image_hover_in);
         //image.addEventListener("mouseout",image_hover_out);
-        image.src=products_arr[i].image;
+        image.src=products_arr.image;
         let btn=document.createElement('button');
         btn.innerText="Add To Cart";
         btn.onclick=function(){
-            addtocart(this);
+            addtocart(products_arr);
         };
         div_cont.append(image,p_name,p_price,btn);
         main_cont.append(div_cont);
         document.body.append(main_cont);
-    }
+    });
 }
 function applyfilter(){
     console.log(document.getElementById("selected").value);
@@ -99,10 +100,10 @@ if(localStorage.getItem('cart_items')==null){
 
 function addtocart(parent){
     
-console.log(parent.parentNode);
+console.log(parent);
 let cart_data=JSON.parse(localStorage.getItem('cart_items'));
 
-cart_data.push(parent.parentNode);
+cart_data.push(parent);
 localStorage.setItem('cart_items',JSON.stringify(cart_data))
 }
 
