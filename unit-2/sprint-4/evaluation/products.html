@@ -5,10 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #main_cont{
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-gap: 10%;
+            
+        }
+        #main_cont >div{
+            align-items: center;
+        }
+        img{
+            width:40%;
+        }
+    </style>
 </head>
 <body>
     <h1>Products</h1>
-
+<div id="main_cont"></div>
 </body>
 <script>
     const products_arr=[{name:"surf excel",price:100,image:"https://m.media-amazon.com/images/I/61rDJVoKpeL._SL1000_.jpg"},
@@ -19,6 +33,31 @@
     {name:"study table",price:100,image:"https://rukminim1.flixcart.com/image/416/416/jyug0i80/office-study-table/c/a/h/particle-board-st-aml-w-bluewud-wenge-original-imafggfyzzbcweuz.jpeg?q=70"},
     {name:"earphones",price:200,image:"https://m.media-amazon.com/images/I/513E13jthNL._SX679_.jpg"},
     {name:"extension cable",price:150,image:"https://m.media-amazon.com/images/I/51bzGciJt9L._SY355_.jpg"}];
+    
+    
+    function showProducts(){
+        let div=document.getElementById("main_cont");
+        for(var i=0;i<products_arr.length;i++){
+        let div_cont=document.createElement("div");
+        let p_name=document.createElement('p');
+        p_name.innerText=products_arr[i].name;
+        let p_price=document.createElement('p');
+        p_price.innerText="₹"+products_arr[i].price;
+        let image=document.createElement("img");
+        image.src=products_arr[i].image;
+        let btn=document.createElement('button');
+        btn.innerText="Add To Cart";
+        btn.onclick=function(){
+            addtocart(products_arr);
+        };
+        div_cont.append(image,p_name,p_price,btn);
+        div.append(div_cont);
+    }
+}
+showProducts();
+function addtocart(){
+
+}
     
 
 
