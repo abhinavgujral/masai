@@ -1,0 +1,20 @@
+#main_cont{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 10%;
+    
+}
+#main_cont >div{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+img{
+    width:40%;
+}
+#filterbutton{
+    float:right;
+}
+#selected{
+    float:right;
+}
