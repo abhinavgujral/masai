@@ -27,12 +27,8 @@
 </head>
 <body>
     <h1>Products</h1>
-    <div id="main_cont">
-
     <button onclick="applyfilter()"id="filterbutton">filter</button>
-    <div></div>
-    <div></div>
-</div>
+    <div id="main_cont"></div>
     
 </div>
 </body>
@@ -53,7 +49,8 @@
       //  let products_arr=JSON.parse(products_json);
     function showProducts(products_arr){
         
-        let div=document.getElementById("main_cont");
+        var main_cont=document.getElementById("main_cont");
+        //main_cont.setAttribute('id','main_cont');
         for(var i=0;i<products_arr.length;i++){
         let div_cont=document.createElement("div");
         let p_name=document.createElement('p');
@@ -70,7 +67,7 @@
             addtocart(products_arr);
         };
         div_cont.append(image,p_name,p_price,btn);
-        div.append(div_cont);
+        main_cont.append(div_cont);
     }
 }
 function applyfilter(){
@@ -80,9 +77,10 @@ function applyfilter(){
     let products_arr=JSON.parse(products_json);
     var filter_products=products_arr.filter(function(item){
         return item.price>140;
-       
-        
-    });showProducts(filter_products);
+       });
+       var div_main=document.getElementById("main_cont");
+       div_main.removeChild("div_main");
+    showProducts(filter_products);
 }
 showProducts(products_arr);
 function addtocart(){
