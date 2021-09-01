@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="about('objects')">Objects</button>
+    <button onclick="about('Functions')">Functions</button>
+    <button onclick="about('strings')">Strings</button>
+    <button onclick="about('number')">Numbers</button>
+    <button onclick="about('NULL')">NULL</button>
+    <button onclick="about('undefined')">Undefined</button>
+    <br><br>
+    
+</body>
+<script>
+    //hoisting, callingstack,
+    function about(st){
+        switch(st){
+            case 'objects':
+                     var lbl=document.createElement('label');    //creating a label tag 
+                     lbl.textContent="Objects:-";       // adding string "Object:-" to label
+                     document.body.appendChild(lbl);    // appending the tag inside the body tag
+
+
+                     var a =document.createElement('ul');      //creating a <ul> tag         
+                     document.body.appendChild(a);             // adding <ul> tag to the body.
+                     var ele1 =document.createElement('li');    // adding <li> tag to the <ul>
+                     ele1.textContent="objects can contain many values";  //adding a string value to the <li> 
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="Object values are written as name : value pairs";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent="Create a single object, using an object literal, new keyword,using Object.create() ";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="Objects are mutable: They are addressed by reference, not by value.";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="non-primitive data type and are mutable with other variable";
+                     a.appendChild(ele1);                    //adding <li> tag inside the <ul>
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+                break;
+                case 'Functions':
+                var lbl=document.createElement('label');
+                     lbl.textContent="Functions:-";
+                     document.body.appendChild(lbl);
+              
+                     var a =document.createElement('ul');          
+                     document.body.appendChild(a);
+                     var ele1 =document.createElement('li');
+                     ele1.textContent=" functions are defined with the 'function' keyword.";
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="execute a block of code";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent="Functions Can Be Used as Values";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="Functions are Objects";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="non-primitive data type and are mutable";
+                     a.appendChild(ele1);
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+
+                break;
+                case 'strings':
+                var lbl=document.createElement('label');
+                     lbl.textContent="Strings:-";
+                     document.body.appendChild(lbl);
+                var a =document.createElement('ul');
+                     document.body.appendChild(a);
+                     var ele1 =document.createElement('li');
+                     ele1.textContent="It is a Primitive data type";
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="value is Immutable";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent="It is just a sequence of characters";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="let and const are better way to initialize";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="it is a primitive data type";
+                     a.appendChild(ele1);
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+                break;
+                case 'number':
+                var lbl=document.createElement('label');
+                     lbl.textContent="Number:-";
+                     document.body.appendChild(lbl);
+                var a =document.createElement('ul');
+                     document.body.appendChild(a);
+                     var ele1 =document.createElement('li');
+                     ele1.textContent="It is a Primitive data type";
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="value is Immutable";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent="It represents a numerical value ex:5.6.123,etc.";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="primitive data type";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="primitive data type";
+                     a.appendChild(ele1);
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+                break;
+                case 'NULL':
+                     var lbl=document.createElement('label');
+                     lbl.textContent="NULL:-";
+                     document.body.appendChild(lbl);
+                      var a =document.createElement('ul');
+                     document.body.appendChild(a);
+                     var ele1 =document.createElement('li');
+                     ele1.textContent="It is a Primitive data type";
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="value is Immutable";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent=" we assign this value to the variableor object to wipe out all the data";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="it is just a special value representing 'Empty'";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="null==undefined is true because both have empty value;";
+                     a.appendChild(ele1);
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+                break;
+                
+                case 'undefined':
+                     var lbl=document.createElement('label');
+                     lbl.textContent="Undefined:-";
+                     document.body.appendChild(lbl);
+                     var a =document.createElement('ul');
+                     document.body.appendChild(a);
+                     var ele1 =document.createElement('li');
+                     ele1.textContent="It is a Primitive data type";
+                     var ele2 =document.createElement('li');
+                     ele2.textContent="value is Immutable";
+                     var ele3 =document.createElement('li');
+                     ele3.textContent="it is assigned automatically to variable when we don't initialize a variable ";
+                     var ele4 =document.createElement('li');
+                     ele4.textContent="it is automatically initialized by javascript ";
+                     var ele5 =document.createElement('li');
+                     ele5.textContent="we don't have to use this value to assign any variable.";
+                     a.appendChild(ele1);
+                     a.appendChild(ele2);
+                     a.appendChild(ele3);
+                     a.appendChild(ele4);
+                     a.appendChild(ele5);
+                break;
+        }
+    }
+</script>
+</html>

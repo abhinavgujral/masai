@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Practise Deletions</title>
+    </head>
+    <body>
+        <h1>First H1</h1>
+        <h1>Second H1</h1>
+        <h3>First H3</h3>
+        <h3>Second H3</h3>
+        <div id="headings">
+            <h5>First H5</h5>
+            <h5>Second H5</h5>
+            <h5>Third H5</h5>
+        </div>
+        <div id="cont">
+            <div class="green">First DIV</div>
+            <div class="red">Second DIV</div>
+            <div class="blue">Third DIV</div>
+            <p class="green">First P</p>
+            <p class="red">Second P</p>
+            <p class="blue">Third P</p>
+        </div>
+        <hr/>
+        <button onclick="remove_h1()">Remove H1</button>
+        <button onclick="remove_h3()">Remove H3</button>
+        <button onclick="remove_h5()">Remove H5</button>
+        <button onclick="remove_red()">Remove Red</button>
+        <button onclick="remove_div()">Remove DIVS</button>
+        <script>
+            function remove_h1(){
+                var a=document.querySelector('div');
+                a.remove();
+            }
+            function remove_h3(){
+                var a_h3=document.querySelectorAll('h3');
+                a_h3[0].remove();
+                a_h3[1].remove();
+            }
+            function remove_h5(){
+                var a_h5=document.querySelectorAll('h5');
+                a_h5[0].remove();
+                a_h5[1].remove();
+                a_h5[2].remove();
+            }
+            function remove_red(){
+                var a_h5=document.getElementsByClassName('red');
+              
+                for(var i=0;i<a_h5.length;i++){
+                    a_h5[i].remove();
+                }
+            }
+                function remove_div(){
+                    var pa=document.getElementById("cont");
+                    var a=pa.querySelectorAll('div');
+                    for(var i=0;i<a.length;i++){
+                        a[i].remove();
+                    }
+                }
+        </script>
+    </body>
+</html>

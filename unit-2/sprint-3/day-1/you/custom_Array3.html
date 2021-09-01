@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+       //--------------------------------------------------------------------------  
+        function Myarray(){ //custom array constructor function
+            this.length=arguments.length;
+            for(let i=0;i<this.length;i++)
+            {
+                this[i]=arguments[i];
+            }
+        }
+
+
+        var arr=new Myarray(1,2,3,4) // creating array object bby calling function and passing values
+        
+        
+        
+        
+        //--------------------------------------------------------------------------
+        Myarray.prototype.धकेलना=function(element){
+        // function Pushing a new value to the array
+              this[this.length++]=element;
+             }
+             arr.धकेलना("pushed_element");
+
+             console.log("arr.धकेलना()",Object.values(arr))
+             
+
+
+      
+        
+             //--------------------------------------------------------------------------     
+            Myarray.prototype.मुद्रण_मूल्य=function(){
+                //printing the array in Array format, not the object one.
+
+                console.log("arr.मुद्रण_मूल्य();",Object.values(arr))
+            }
+        
+            arr.मुद्रण_मूल्य();
+        
+        
+        
+            
+            //--------------------------------------------------------------------------    
+            Myarray.prototype.पहला_तत्व=function(){
+                return this[0];       //returning first element
+            }
+            console.log("पहला_तत्व() "+arr.पहला_तत्व());//calling and printing first element function
+        
+        
+          //--------------------------------------------------------------------------
+          Myarray.prototype.उलट=function(){
+            // function Reversing the array and returning it.
+            for(let i=0;i<(this.length)/2;i++){
+                let temp=this[i];
+                  this[i]=this[this.length-1-i];
+                  this[this.length-1-i]=temp;       
+                        }
+                    return arr;
+             }
+               console.log("arr.उलट() ",Object.values(arr.उलट()));
+        
+        
+        
+           
+       
+    
+    </script>
+</body>
+</html>

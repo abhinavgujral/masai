@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tatkal Booking System</h1>
+    <button onclick="checkAvailability()">check Availability</button>
+
+</body>
+</html>
+<script>
+    //if any train is available, they want to get notified.
+    // a train is available.
+    // a train has only 10 tickets available
+   // let btoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let BtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let MtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let PtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    
+    function checkAvailability(){
+    let promise= new Promise(function(resolve,reject){
+       setInterval(function(){ 
+           if(BtoG.length<6)
+        {
+            resolve('BtoG have seats available');
+        }
+        else if(MtoG.length<6){
+            resolve('MtoG has seats available');
+        }
+        else if(PtoG.length<6){
+            resolve('PtoG has seats available');
+        } 
+     },1000);
+     });
+    promise.then(function(res)
+    {console.log("res:",res);
+    clearInterval(interval);
+});
+    }
+
+
+      function cancelTicket(){
+         let cancel_speed1=Math.round(Math.random()*5000);  
+         let cancel_speed2=Math.round(Math.random()*5000);  
+         let cancel_speed3=Math.round(Math.random()*5000);  
+         
+         
+         setTimeout(function(){BtoG.pop();console.log("BtoG",BtoG+" total passengers left="+BtoG.length);},cancel_speed1);
+         setTimeout(function(){MtoG.pop();console.log("MtoG",MtoG+" total passengers left="+MtoG.length);},cancel_speed2);
+         setTimeout(function(){PtoG.pop();console.log("PtoG",PtoG+" total passengers left="+PtoG.length);},cancel_speed3);
+              
+          
+      }
+      
+      var interval=setInterval(cancelTicket,2000);
+
+    
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          td {
+            border: 1px solid gray;
+            width:200px;
+        }
+        #count{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="task" placeholder="Enter task">
+    <input type="submit" onclick="createtask()"></input>
+    <span id="count"></span>
+    <table>
+        <tr>
+            <td>Tasks</td>
+            <td>Date Created</td>
+            <td>Status</td>
+            <td>click mark complete</td>
+            <td>click to remove</td>
+           
+        </tr>
+    </table>
+
+</body>
+</html>
+<script>
+    var count =0;
+    var h2=document.getElementById('count')
+    h2.innerText=count;
+    var arr=[];
+function createtask(){
+
+    var taskname=document.getElementById("task").value;
+    var task1=new task(taskname);
+    
+   arr.push(task1);
+   console.log(arr);
+
+   printlist(task1);
+   h2.innerText=++count;
+}
+function printlist(task1){
+    var parent = document.querySelector('table');
+
+   
+      var row = document.createElement('tr');
+      var c1 = document.createElement('td');
+      c1.textContent = task1.taskname;
+      var c2 = document.createElement('td');
+     c2.textContent = task1.Date;
+     var c3 = document.createElement('td');
+     c3.textContent = task1.status;
+    var c4 = document.createElement('td');
+            c4.textContent = "Complete";
+            c4.addEventListener('click', complete);
+            var c5 = document.createElement('td');
+            c5.textContent = "Delete";
+            c5.addEventListener('click', deleted);
+            // document.body.append(count);
+            row.appendChild(c1);
+            row.appendChild(c2);
+            row.appendChild(c3);
+            row.appendChild(c4);
+            row.appendChild(c5)
+         
+            parent.appendChild(row);
+            
+            
+}
+
+
+    function task(taskname){
+        let products={};
+        this.taskname=taskname;
+        this.Date=new Date();
+        this.status=false;
+    }
+    var complete = function(event) {
+            var parent = event.target.parentNode;
+            parent.style.background = "green";
+        }
+
+        var deleted = function(event) {
+            var parent = event.target.parentNode;
+            parent.remove();
+            h2.innerText=--count;
+        }
+
+</script>

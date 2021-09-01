@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+#cont{
+    margin:auto;
+    height: 400px;
+    width:60%;
+ border-radius:10px;
+ background-color:skyblue;
+ 
+    
+
+}
+#btnbottom{
+    height: 80px;
+    width:30%;
+    margin-left: 68%;
+    margin-top:58%;
+    border-radius:10px;
+    padding-top: 1.5%;
+    text-align: center;
+    font-size: x-large;
+    background-color: brown;
+
+}
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <button id="btnbottom">SUBMIT</button>
+    </div>
+    
+</body>
+<script>
+var a=document.getElementById("btnbottom");
+var b=document.getElementById("cont");
+b.addEventListener("mouseenter",chng);
+b.addEventListener("mouseleave",chngback);
+
+function chngback(){
+    a.style.backgroundColor="brown";
+}
+function chng(){
+    console.log("hi");
+a.style.backgroundColor="green";
+}
+</script>
+</html>

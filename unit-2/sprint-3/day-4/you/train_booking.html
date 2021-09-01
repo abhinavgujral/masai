@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tatkal Booking System</h1>
+    <button onclick="checkAvailability()">check Availability</button> &emsp;
+    
+   
+
+</body>
+</html>
+<script>
+    //if any train is available, they want to get notified.
+    // a train is available.
+    // a train has only 10 tickets available
+   // let btoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let BtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let MtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    let PtoG=['Superman','batman','ironman','shaktiman','chota-bheem','krish','jumior G','spiderman','chacha chaudhary'];
+    
+    function checkAvailability(){
+    let promise= new Promise(function(resolve,reject){
+       setInterval(function(){ 
+           if(BtoG.length<6)
+        {
+            resolve('BtoG have seats available');
+        }
+         if(MtoG.length<6){
+            resolve('MtoG has seats available');
+        }
+        if(PtoG.length<6){
+            resolve('PtoG has seats available');
+        } 
+     },1000);
+     });
+    promise.then(function(res)
+    {alert("res:",res);
+    //location.href="booking.html";
+     booking();
+    clearInterval(interval);
+    clearInterval(bookinterval);
+});
+    }
+
+function booking(){
+    var input=document.createElement("input");
+    input.setAttribute('id','newbooking');
+    var select=document.createElement('select');
+    select.setAttribute('id','select_train');
+    var option1=document.createElement('option');
+    option1.innerText="BtoG";
+    var option2=document.createElement('option');
+    option2.innerText="MtoG";
+    var option3=document.createElement('option');
+    option3.innerText="PtoG";
+    select.append(option1,option2,option3);
+    var button=document.createElement('button');
+    button.innerHTML="do booking";
+    button.onclick=function(){
+        var name=document.getElementById("newbooking").value;
+var train_name=document.getElementById("select_train").value;
+console.log(train_name);
+if(train_name=="BtoG")
+BtoG.push(name);
+else if(train_name=="MtoG")
+MtoG.push(name);
+if(train_name=="PtoG")
+PtoG.push(name);
+
+alert("booking confrimed");
+console.log("PtoG"+PtoG);
+console.log("MtoG"+MtoG);
+console.log("BtoG"+BtoG);
+
+setInterval(randombooking,3000);
+setInterval(cancelTicket,2000);
+
+    }
+    document.body.append(input,select,button);
+
+
+}  
+
+       function randombooking(){
+
+        setTimeout(function(){
+            BtoG.push("booked");
+            console.log("BtoG",BtoG+" total passengers left="+BtoG.length);
+        },Math.round(Math.random()*1000));
+    
+        setTimeout(function(){
+            MtoG.push("booked");
+            console.log("MtoG",MtoG+" total passengers left="+MtoG.length);
+           
+        },Math.round(Math.random()*1000));
+        setTimeout(function(){
+            PtoG.push("booked");
+            console.log("PtoG",PtoG+" total passengers left="+PtoG.length);
+        },Math.round(Math.random()*1000));
+    
+    }
+           var bookinterval=  setInterval(randombooking,5000);
+
+
+
+
+
+      function cancelTicket(){
+         let cancel_speed1=Math.round(Math.random()*5000);  
+         let cancel_speed2=Math.round(Math.random()*5000);  
+         let cancel_speed3=Math.round(Math.random()*5000);  
+         
+         
+         setTimeout(function(){BtoG.pop();},cancel_speed1);
+         setTimeout(function(){MtoG.pop();},cancel_speed2);
+         setTimeout(function(){PtoG.pop();},cancel_speed3);
+              
+          
+      }
+      
+      var interval=setInterval(cancelTicket,2000);
+
+    
+</script>

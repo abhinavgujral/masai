@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #cont{
+        max-width:80%;
+        margin:auto;
+        border :1px solid black;
+        height:auto;
+    }
+    img{
+        max-width: 500px;
+    }
+    #ordercount{
+        position: absolute;
+        top:0px;
+        right:30px;
+    }
+</style>
+</head>
+
+<body>
+    <hi>Choose what you ewant to order</hi>
+    <form onsubmit="place_order(event)">
+    <input type="checkbox"id="burger" value="burger">
+    <label for="burger">Mc Burger</label><br>
+    <input type="checkbox"id="wrap" value="wrap">
+    <label for="wrap">Mc Wrap</label><br>
+    <input type="checkbox"id="paneer" value="paneer">
+    <label for="burger">Mc Paneer</label><br>
+    <input type="checkbox"id="coke" value="coke">
+    <label for="burger">Coca-Cola</label>
+    <br><br>
+    <input type="submit" value="Order Here!">
+</form>
+
+<div id="cont"></div>
+    <script>
+        var orderid=100;
+function place_order(e){
+    orderid++;
+
+    e.preventDefault();
+    let promise=new Promise(function(resolve,reject){
+        alert("your order is complete wait for 5 seconds");
+        setTimeout(function(){
+         
+       /*    var a=document.querySelectorAll('input[type="checkbox"]:checked'); */
+        var burger=document.getElementById("burger").checked;
+        var wrap=document.getElementById("wrap").checked;
+        var paneer=document.getElementById("paneer").checked;
+        var coke=document.getElementById("coke").checked; 
+      
+        mac_burger="https://mcdonaldsblog.in/wp-content/uploads/2016/11/maharaja-mac-story_McDonalds_081116.jpg";
+        mc_wrap="https://www.forkingspoon.com/wp-content/uploads/better-mac-snack-wrap.jpg"
+        mc_paneer="https://mcdonaldsblog.in/wp-content/uploads/2016/06/mcspicy-paneer-1.jpg"
+        mc_coke="https://shesorandom.files.wordpress.com/2012/05/mcdonalds-soda.jpg?w=224&h=300"
+        
+        
+
+        var cont=document.getElementById('cont');
+        var h2=document.createElement('h2');
+          h2.innerHTML="Your order is ready";
+          cont.append(h2);
+        
+        
+          if(burger==true){
+            console.log("hi");
+            let img=document.createElement('img');
+            img.src=mac_burger;
+            cont.append(img);
+            
+          }
+          if(wrap==true)
+          {
+            let img=document.createElement('img');
+            img.src=mc_wrap;
+            cont.append(img);
+            
+        }  if(paneer==true)
+          {
+            let img=document.createElement('img');
+            img.src=mc_paneer;
+            cont.append(img);
+            
+        }  
+        if(coke==true)
+          {
+            let img=document.createElement('img');
+            img.src=mc_coke;
+            cont.append(img);
+      
+        }         
+     
+     
+       if(document.getElementById('ordercount')!=null)
+       {
+        document.getElementById('ordercount').remove();
+       }
+        var order_id =document.createElement('h1');
+                 order_id.setAttribute("id","ordercount");
+                 order_id.innerText="Order Number:"+orderid;  console.log("hello");
+             document.body.append(order_id);
+        },5000);
+
+    });
+
+    promise.then(function(res){
+        cont.append(a);
+      
+
+    });
+
+}
+        
+        </script>
+</body>
+</html>

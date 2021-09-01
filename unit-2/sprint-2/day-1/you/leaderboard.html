@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+        box-sizing: border-box  ;
+    }
+    #MIN{
+    width:100px;
+    border: 1px solid black;
+    height: 60px;
+    background-color: red;
+    padding-top: 1.5%;
+    text-align: center;
+    float:left;
+}
+    #MAX{
+        
+    border: 1px solid black;
+     min-width:100px;
+    height: 60px;
+    background-color: greenyellow;
+    padding-top: 1.5%;
+    text-align: center;
+    float:right;
+    }
+    #lblMIN{
+        font-size: xx-large;
+        text-align: center;       
+        float:left;
+        margin-left:1.5%;
+    }
+    #lblMAX{
+        font-size: xx-large;
+        text-align: center;    
+        float:right;
+        margin-right:1.5%;
+    }
+    #outercont{
+        margin :5%;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+#lblscore{
+    font-size: xx-large;
+    margin-left:40%;
+    
+}
+input{
+    width: 250px;
+    height: 100px;
+    margin-left:30%;
+    background-color: thistle;
+}
+#keypad{
+    margin-left:25%;
+      
+    
+    width:50%;
+}
+#keypad> button{
+    float: left;  
+    min-width:80px;
+    height: 50px;
+    margin:10px;
+    border:1px solid black;
+    text-align: center; 
+    padding-top:5%; 
+    background-color: bisque;
+}
+#button1{
+    font-size: xx-large;
+    margin-left: 10px;
+    height:50px;
+    width:290px;
+    background-color: black; !important
+    color:white;
+}
+</style>
+</head>
+<body>
+    <div id="outercont">
+    <div id='MIN'>--</div>
+    <div id='MAX'>--</div>
+    <br><br><br><br>
+    <label id="lblMIN">MIN</label>
+    <label id="lblMAX">MAX</label>
+    <br><br><br><br>
+    <label id="lblscore">SCORE</label>
+    <div id="score" ></div>
+    <input type="text" id="display" value="#">
+    
+    <div id="keypad">
+    <button onclick="button(1)" >1</button>
+    <button onclick="button(2)">2</button>
+    <button onclick="button(3)">3</button>
+    
+    <button style="clear:left" onclick="button(4)">4</button>
+    <button onclick="button(5)">5</button>
+    <button onclick="button(6)">6</button>
+  
+    <button onclick="button(7)">7</button>
+    <button onclick="button(8)">8</button>
+    <button onclick="button(9)">9</button>
+    <button style="border:0px solid white; background-color: white;"></button>
+    <button onclick="button(0)">0</button>
+    <button onclick="button_enter()"id="button1"> ENTER </button>
+</div>
+
+</div>
+<script>
+    var max=0;
+    var min=10000000;
+    var output="";
+    var display=document.getElementById('display');
+   function button(num){
+       output= output + num;
+       console.log(output);
+      display.value = output;  
+   }
+   function button_enter(){
+       var fn=Number(output);
+       if(fn<min){
+           min=fn;
+           document.getElementById("MIN").textContent=min;
+
+       }
+       if(fn>max){
+           max=fn;
+           document.getElementById("MAX").textContent=max;
+       }
+       output="";
+       display.value = output; 
+   }
+</script>
+</body>
+</html>

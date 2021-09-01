@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+     background-color: rgb(3, 3, 70);
+     color: aliceblue;
+    }
+    #movie{
+        width:40%;
+        height: 1.9rem;
+        border: 1px solid gray;
+          margin:5rem 1% 5rem 23%;
+          font-size: larger;
+         
+    }
+    #searchbtn{
+        width: 10%;
+        height: 2.1rem;
+        font-size: larger;
+        background-color:rgba(36, 243, 157, 0.467) ;
+        margin:5rem 22% 0 1%;
+
+    }
+#display{
+    height: auto;
+    width: 90%;
+    word-wrap: break-word;
+    /*margin: auto;  */
+}
+#movie_img{
+    width:60%;
+    margin-left: 25%;
+}
+#movie_detail{
+    width:60%;
+    margin-left: 25%;
+    box-sizing: border-box;
+    border: 1px solid black;
+
+}
+
+</style>
+<body>
+    <h1>Search your movies:</h1>
+    <input type="text" id="movie" placeholder="Enter Movie Name">
+    <button id="searchbtn" onclick="search()">Search</button>
+    <div id="display">
+        <img id="movie_img">
+        <div id="movie_detail">
+        <h2 id="h2"></h2>
+        <p id="date"></p>
+        <p id="rating"></p>
+        <p id="boxoffice"></p>
+        <p id="Actors"></p>
+        <p id="Awards"></p>
+        <p id="Writer"></p>
+        <p id="Director"></p>
+        <p id="Production"></p>
+        <p id="country"></p>
+        
+        <p id="Plot"></p>
+    </div>
+        
+    </div>
+
+    <script>
+        async function search()
+        {
+            try{
+            let movie=document.getElementById("movie").value;
+           let response =await fetch(`https://www.omdbapi.com/?t=${movie}&apikey=762167c5`);
+
+                var data=await response.json();
+            
+              console.log(data);
+            }
+            catch(err){
+                console.log("err:",err);
+            }
+
+          try{
+              var cont=document.getElementById("display");
+              var img=document.getElementById("movie_img");
+              img.src=data.Poster;
+                     
+             var h2=document.getElementById('h2');
+             h2.textContent="Movie name:";
+             h2.textContent+=data.Title;
+
+             var date=document.getElementById('date');
+             date.textContent="Released Date:";
+             date.textContent+=data.Released;
+             var rating=document.getElementById('rating');
+             rating.textContent="Rating:";
+            rating.innerText+=data.Ratings[0].Value
+             var boxoffice=document.getElementById('boxoffice');
+             boxoffice.textContent="Box office:";
+             boxoffice.textContent+=data.BoxOffice;
+             var Actors=document.getElementById('Actors');
+             Actors.textContent="Actors:";
+             Actors.textContent+=data.Actors;
+             var Awards=document.getElementById('Awards');
+             Awards.textContent="Awards:";
+             Awards.textContent+=data.Awards;
+             var Writer=document.getElementById('Writer');
+             Writer.textContent="Writer"; 
+             Writer.textContent+=data.Writer;
+             var Director=document.getElementById('Director');
+             Director.textContent="Director";
+             Director.textContent+=data.Director;
+             var Production=document.getElementById('Production');
+             Production.textContent="Production";
+             Production.textContent+=data.Production;
+             var country=document.getElementById('country');
+             country.textContent="Country";
+             country.textContent+=data.Country;
+             var Plot=document.getElementById('Plot');
+             Plot.textContent="Plot: ";
+             Plot.textContent+=data.Plot;
+
+          }
+          catch(err){
+              
+            console.log("err:",err);
+
+          }
+
+        }  
+            </script>
+</body>
+</html>

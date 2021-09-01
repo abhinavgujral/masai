@@ -1,0 +1,24 @@
+#form{
+
+max-width:100%;
+align-items: center;
+display: grid;
+grid-template-columns: 30% 30%;
+grid-gap: 15%;
+height: 250px;
+margin-left:10%;
+margin-right: 10%;
+
+
+}
+#form >.button_signup{
+    margin-left: 100%;
+    width:30%;
+    float:right;
+}
+#form >.button_cancel{
+    margin-right: 70%;
+    width:30%;
+}
+
+

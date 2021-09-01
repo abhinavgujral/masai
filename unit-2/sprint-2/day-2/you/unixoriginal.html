@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> #outercont1{text-align: center; margin: 20px 470px 30px 470px; background-color:gainsboro; height: 280px;}
+        #imgLinus{margin-top: 20px; height:150px;
+       }
+       #divtxtLinus{margin-top: 0; margin-bottom: 20px; font-weight: bold; font-size: 35px; font-family: sans-serif, serif; color:blue ;}
+       #sub_divtxtLinus{font-size: 25px; font-family: sans-serif,serif; margin-bottom: 10px;}
+       
+       #imgsalkhan{ float: left; margin-left: 340px; display: inline-block; height:120px;}
+       #divnamesalkhan{margin-left: 20px; display:inline-block; color: red; font-weight: bold; font-size: 35px; font-family: sans-serif, serif; }
+       #ptxtsalkhan{color: black; font-size: 20px; font-weight:lighter ;font-family: sans-serif, serif; margin-right:15%;}
+       #bottomcont{padding: 20px; margin-left: 30px; margin-right: 30px; background-color: orangered;height: 120px;}
+       #row1{height: 100px;}
+       #col1{ height: 100px; width: 600px;}
+       #txtkenthompson{font-size: 30px;  color:white ;}
+
+       #ptxtkenthompson{color: black; font-size: 20px;}
+       #col2{background-color: black; width: 5px;}
+       #col3{width: 570px; text-align: right;}
+       #divdennistxt{color: white; font-size: 30px;}
+       #ptxtdennis{ text-align: right; color: black;font-size: 20px;}</style>
+</head>
+<body>
+    <button onclick="create()">Create Page</button>
+
+</body>
+<script>
+     function create(){
+   document.querySelector('button').remove();
+   var body=document.querySelector('body');
+   var outercont1=document.createElement('div');
+   outercont1.setAttribute('id','outercont1');  
+   var imgLinus=document.createElement('img');
+   imgLinus.setAttribute('id','imgLinus');
+   imgLinus.setAttribute('src','https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/linus.jpg');
+   var divtxtLinus=document.createElement('div')
+   divtxtLinus.textContent="Linus";
+   divtxtLinus.setAttribute('id','divtxtLinus');
+   var sub_divtxtLinus=document.createElement('div');
+   sub_divtxtLinus.textContent="The creator of Linux & Git";
+   sub_divtxtLinus.setAttribute('id','sub_divtxtLinus');
+   outercont1.appendChild(imgLinus);
+   outercont1.appendChild(divtxtLinus);
+   outercont1.appendChild(sub_divtxtLinus);
+   body.appendChild(outercont1);
+
+
+   var outercontlower=document.createElement('div');
+   var imgsalkhan=document.createElement('img');
+   imgsalkhan.setAttribute('id','imgsalkhan');
+   imgsalkhan.setAttribute('src','https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/khan.jpg');
+   var divnamesalkhan=document.createElement('div');
+   divnamesalkhan.textContent="Sal Khan";
+   divnamesalkhan.setAttribute('id','divnamesalkhan');
+   
+   var ptxtsalkhan=document.createElement('p');
+   ptxtsalkhan.textContent="Salman Khan is the founder of the Khan Academy which has a mission of a free world-class education for anyone,anywhere.";
+   ptxtsalkhan.setAttribute('id','ptxtsalkhan');
+   
+   outercontlower.appendChild(imgsalkhan);
+   outercontlower.appendChild(divnamesalkhan);
+   outercontlower.appendChild(ptxtsalkhan);
+   body.appendChild(outercontlower);
+   
+   body.appendChild(outercontlower);
+
+
+
+   var linebreak=document.createElement('br');
+   body.appendChild(linebreak);console.log("hi");
+   body.appendChild(linebreak);
+   body.appendChild(linebreak);
+
+   var bottomcont=document.createElement('div');
+   bottomcont.setAttribute('id','bottomcont');
+   var table=document.createElement('table');
+   var row1=document.createElement('tr');
+   row1.setAttribute('id','row1');
+   var col1=document.createElement('td');
+   col1.setAttribute('id','col1');
+   var txtkenthompson=document.createElement('div');
+   txtkenthompson.setAttribute('id','txtkenthompson');
+   txtkenthompson.textContent=" Ken Thompson";
+   var ptxtkenthompson=document.createElement('p');
+   ptxtkenthompson.setAttribute('id','ptxtkenthompson');
+   ptxtkenthompson.textContent="Designed and implemented the <br/> original Unix operating system";
+   var col2=document.createElement('td');
+   col2.setAttribute('id','col2');
+   var col3 =document.createElement('td');
+   col3.setAttribute('id','col3');
+   var divdennistxt=document.createElement('div');
+   divdennistxt.textContent="Dennis Ritchie";
+   divdennistxt.setAttribute('id','divdennistxt');
+   var ptxtdennis=document.createElement('p');
+   ptxtdennis.textContent="The creator of the C Programming Language";
+   ptxtdennis.setAttribute('id','ptxtdennis');
+   col1.appendChild(txtkenthompson);
+   col1.appendChild(ptxtkenthompson);
+   row1.appendChild(col1); 
+   row1.appendChild(col2);
+   col3.appendChild(divdennistxt);
+    col3.appendChild(ptxtdennis);
+    row1.appendChild(col3);
+   table.appendChild(row1);
+   bottomcont.appendChild(table);
+   body.appendChild(bottomcont);
+
+ }
+   
+</script>
+</html>

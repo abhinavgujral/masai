@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #template{
+        
+         max-width:1000px;
+         margin:auto;
+     }
+      
+     #top{
+        display:flex;
+         flex:row;
+         height:100px;
+         background-color: red;
+         flex-grow: 1;
+         border-radius:6px;
+         margin:20px;
+         
+     }
+     #cont{
+        display:flex;
+
+     }
+     
+     #left{
+        
+         background-color: greenyellow;
+         height:460px;
+         margin :20px;
+         flex-grow: 1;
+         border-radius:6px;
+     }
+     #right{
+         background-color: teal;
+         height:460px;
+         margin :20px;
+         flex-grow: 3;
+         border-radius:6px;
+     }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div id="template">
+            <div id="top"></div>
+            <div id="cont">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

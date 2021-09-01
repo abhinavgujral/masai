@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          td {
+            border: 1px solid gray;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="task" placeholder="Enter task">
+    <input type="submit" onclick="createtask()">
+    <table>
+        <tr>
+            <td id="id">Id</td>
+            <td>Tasks</td>
+            <td>Date Created</td>
+            <td>Status</td>
+
+           
+        </tr>
+    </table>
+
+</body>
+</html>
+<script>
+    var arr=[];
+   var count=0;
+   var toggle_val=false;
+
+
+function createtask(){
+    //create object of individual task
+        var taskname=document.getElementById("task").value;
+        var objtask={
+        id:++count,
+        taskname:taskname,
+        Date:new Date(),
+        status:false,
+    };
+   arr.push(objtask); //add task to object array
+
+   print_task(objtask,toggle_val);//display task
+}
+function print_task(task1,toggle_val){
+    //creating task elements to display 
+
+
+var table = document.querySelector('table');
+var row = document.createElement('tr');
+var id = document.createElement('td');
+id.textContent = count;
+var c1 = document.createElement('td');
+c1.textContent = task1.taskname;
+var c2 = document.createElement('td');
+c2.textContent = task1.Date;
+var c3 = document.createElement('td');
+c3.innerHTML = toggle_val;
+c3.setAttribute("class",'status');
+c3.addEventListener("click",toggle_task);
+            row.append(id);
+            row.appendChild(c1);
+            row.appendChild(c2);
+            row.appendChild(c3);
+            table.appendChild(row);
+}
+
+
+   
+
+    var toggle_task = function(event) {  //to make task toggle
+    
+            var parent = event.target.parentNode;
+            var id=parent.children[0].innerHTML;
+
+            console.log(typeof(parent.lastChild.innerHTML));
+                 if(parent.lastChild.innerHTML=='false')
+                 {console.log("hi1");
+                 event.target.innerHTML='true';
+                 }
+                 else if(parent.lastChild.innerHTML=='true')
+                 {
+                     console.log("hi2");
+                     event.target.innerHTML='false';
+                 } 
+                 
+                 print_task(arr[id-1],toggle_val);
+           //----------------------------------------------------------------- 
+           console.log("myarray ",arr);     
+                 arr = arr.filter(function(item,i) {
+                        return item !== arr[id-1] //i!=id-1;
+                           });
+
+                    console.log(arr);
+                    arr.pop();
+ 
+
+                 parent.remove();
+                     arr.join(); 
+                    arr.splice(2, 0, arr);
+                   console.log(arr.join()); 
+                // console.log(arr);
+           
+        }
+</script>

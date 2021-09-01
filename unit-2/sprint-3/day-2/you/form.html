@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <form onsubmit="submitForm(event)">
+        <br><br><br>
+        <label>Product Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your product"/><br><br>
+        <label>Enter price:</label><br>
+        <input type="number" id="price" placeholder="Enter price of your product"/><br><br>
+        <label>Enter product image url:</label><br>
+        <input type="text" id="url"placeholder="Enter url of th image"><br><br><br>
+        <input type="submit"/>
+        &emsp;&emsp;<button><a href="products.html">open products</a></button>
+    </form>
+   
+   
+    
+</body>
+</html>
+<script>
+    var products=[];
+ //   localStorage.clear();
+    function submitForm(e){
+e.preventDefault()
+        var items={
+     name:document.getElementById("name").value,
+     price:document.getElementById("price").value,
+     url:document.getElementById("url").value,
+    };
+    
+    products.push(items);
+    console.log(products);
+    var json_products=JSON.stringify(products);
+    localStorage.setItem("myDetergents",json_products);
+
+
+}
+</script>

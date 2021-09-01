@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* proto type chaining
+      priority order
+      1.owner
+      2.prototype
+      3. prototype's prototype
+        */
+    var grandparents={
+        father:"vas dev",
+        mother:"kanta devi"
+};
+console.log(grandparents);
+
+    
+var parents=Object.create(grandparents);
+console.log(parents);
+parents.father="yashkaran";
+parents.mother="sonia"; 
+
+//console.log(parents.father);
+var son=Object.create(parents);
+son.son="Abhinav";
+
+console.log(son);
+var daughter=Object.create(parents);
+daughter.daughter="Priya";
+console.log(daughter);
+                     
+    
+</script>
+</html>

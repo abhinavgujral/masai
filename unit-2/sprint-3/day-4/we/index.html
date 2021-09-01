@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Covid Vaccination alert system</h1>
+<input type="text" id="name" placeholder="Enter name" >
+<input type="number" id="Age" placeholder="Enter Age" >
+<button onclick="register()">register</button>
+</body>
+</html>
+<script>
+    var count_vaccine=5;
+    let queue=["jethalal","ronaldo","Kejriwal","Babu bhaiyaa","Thanos"];
+    function register(){
+     let person =document.getElementById('name').value;
+     let age =document.getElementById('Age').value;
+     if(age<60){
+     queue.push(person);
+     }else{
+     queue.unshift(person);
+     }
+     let message= `${person}your registration is successful. Now,go and wait`;
+          alert(message);
+
+          let promise=new Promise(function(resolve,reject){
+              setInterval(function() {
+                  if(queue[0]===person){
+                  resolve(`${person},its your turn now`);
+              }
+            },1000);
+        });
+            
+            console.log("promise:",promise);
+
+            promise.then(function(res){
+                console.log("res:",res);
+            });
+            //promise fulllfilled
+}
+
+function startVaccination(){
+    queue.shift();
+    if(count_vaccine--==0){
+    alert("vaccine stock is finishd come back tommorow!");
+    clearInterval(interval);
+    }console.log("queue:",queue);
+    console.log("people left in queue ="+queue.length);
+    if(queue.length===0){
+    clearInterval(interval);
+}
+}
+var interval=setInterval(startVaccination,2000);
+
+
+</script>

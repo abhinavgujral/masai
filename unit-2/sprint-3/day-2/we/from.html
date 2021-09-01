@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #data{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        grid-gap:5%;    
+    }
+    #data>div{
+        display:flex;
+        align-items:center;
+        flex-direction: column;
+
+        
+    }
+    img{
+        width:40%;
+    }
+    </style>
+</head>
+<body>
+    <form onsubmit="submitForm(event)">
+       <input type="text" id="name" placeholder="Enter Movie Name"/>
+       <input type="number" id="rating"placeholder="Enter your rating"/>
+        <input  type="submit"/>
+    </form>
+    <!--<div id="data"></div>-->
+</body>
+</html>
+<script>
+    function submitForm(e){
+        e.preventDefault();
+        console.log("form submitted");
+        const movie_obj={
+            name:document.getElementById('name').value,
+            rating:document.getElementById('rating').value,
+        };
+        const movie_Json=JSON.stringify(movie_obj);
+        localStorage.setItem("Movie",movie_Json);
+        console.log("movie",movie_Json);
+    }
+
+
+/*
+
+    //we 2-create mock data of products.Store in localist
+//step:1 create products data
+//step2:
+
+
+const detergents = [
+    {
+      name: "Nirma",
+      price: "10",
+      image: "https://n2.sdlcdn.com/imgs/b/3/0/Nirma-Detergent-Powder-Nirma-Washing-SDL602226993-1-15845.jpg",
+    },
+
+    {
+      name: "Surf excel",
+      price: "20",
+      image: "https://m.media-amazon.com/images/I/61rDJVoKpeL._SL1000_.jpg",
+    },
+    {
+      name: "Tide",
+      price: "30",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Tide_logo.svg/1200px-Tide_logo.svg.png",
+    },
+    {
+      name: "wheel",
+      price: "60",
+      image: "https://5.imimg.com/data5/QV/MX/MY-8609988/wheel-powder-500x500.jpg",
+    },
+    {
+      name: "ghadi",
+      price: "40",
+      image: "https://m.media-amazon.com/images/I/61SZYb3O-wL._SL1399_.jpg",
+    },
+    {
+      name: "ariel",
+      price: "50",
+      image: "https://5.imimg.com/data5/HE/VA/SO/SELLER-46615966/111-500x500.jpg",
+    },
+  ];
+//Step2:convert to JSON
+const detergents_json=JSON.stringify(detergents);
+//Step3:Store data in local storage
+localStorage.setItem("myDetergents",detergents_json);
+//step:4 display on webpage
+const myDetergents_json=localStorage.getItem("myDetergents",);
+
+const myDetergents=JSON.parse(myDetergents_json);
+
+function showProducts(){
+let data_div=document.getElementById("data");
+
+myDetergents.forEach(function (product) {
+    let div=document.createElement("div");
+    
+    let p_name=document.createElement('p');
+    p_name.innerText=product.name;
+    let p_price=document.createElement('p');
+    p_price.innerText=product.price;
+    let image=document.createElement("img");
+
+    image.src=product.image;
+
+    div.append(image,p_name,p_price);
+    data_div.append(div);
+});
+
+}
+showProducts();*/
+</script>

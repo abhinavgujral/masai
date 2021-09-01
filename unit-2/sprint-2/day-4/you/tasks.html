@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          td {
+            border: 1px solid gray;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="task" placeholder="Enter task">
+    <input type="submit" onclick="createtask()"></input>
+    <table>
+        <tr>
+            <td>Tasks</td>
+            <td>Date Created</td>
+            <td>Status</td>
+           
+        </tr>
+    </table>
+
+</body>
+</html>
+<script>
+    var arr=[];
+function createtask(){
+    var taskname=document.getElementById("task").value;
+    var task1=new task(taskname);
+    
+   arr.push(task1);
+   console.log(arr);
+   printlist();
+}
+function printlist(){
+    var parent = document.querySelector('table');
+
+var row = document.createElement('tr');
+var c1 = document.createElement('td');
+c1.textContent = arr[0].taskname;
+var c2 = document.createElement('td');
+c2.textContent = arr[0].Date;
+var c3 = document.createElement('td');
+c3.textContent = arr[0].status;
+            row.appendChild(c1);
+            row.appendChild(c2);
+            row.appendChild(c3);
+            parent.appendChild(row);
+}
+
+
+    function task(taskname){
+        let products={};
+        this.taskname=taskname;
+        this.Date=new Date();
+        this.status=false;
+    }
+
+</script>

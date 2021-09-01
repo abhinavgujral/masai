@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+           
+            display: flex;
+            max-width:80%;
+            margin:auto;
+            box-sizing: border-box;
+            overflow:hidden ;
+            margin-bottom: 100px;
+          
+        }
+        .div_cont_box{
+            max-width:100%;
+            display: grid;
+      grid-template-columns: 30% 30% 30% ;
+      grid-gap: 5%;
+      border: 1px solid black;
+    }
+        
+    </style>
+</head>
+<body>
+   
+      
+    <div id="nav_cont"></div>
+    <div id="carousel"></div>
+<button onclick="low_high()">Sort by low rating to high</button>
+<button onclick="high_low()"> Sort by High rating to low</button>
+<br>
+<br>
+<br id="movies">
+
+    
+<!--
+<div id="carousel">
+<img src="https://www.sanantoniothingstodo.com/wp-content/uploads/2021/06/SanAntonioMovies_featured2.jpg" alt="" id="img1">
+<img src="https://filmsxpress.com/userimages/62/images/HEADER.jpg" alt="" id="img2">
+<img src="https://m.media-amazon.com/images/I/51ZaZc-xtHL.jpg" alt="" id="img3">
+</div> -->
+<script src="home_display.js"></script>
+<script src="navbar.js"></script>
+<script src="Home.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ #outercont{
+      /*max-width:100%;*/
+       display:grid;
+       grid-gap: 20px;
+     
+   }
+       
+
+   .Navigation{
+       background-color: yellow;
+       font-size:50px;
+       height: 70px;
+       padding-left:10px;
+       padding-top: 10px;
+       grid-area: nav;
+
+   }
+   
+   .box1
+   {
+
+   background-color: red;
+   font-size: x-large;
+   color: darkgray;
+  height: 250px;
+   padding-left:10px;
+   padding-top: 5px;
+   grid-area: box1;
+}
+   .box2{
+       background-color: greenyellow;
+       font-size: x-large;
+       color: darkgray;
+       padding-left: 10px;
+       padding-top: 5px;
+       grid-area: box2;
+       height: 250px;
+   }
+   .box3{
+    
+       background-color:cornflowerblue;
+        font-size: x-large;
+       color: darkgray;
+       padding-left:10px;
+       padding-top: 5px;
+       grid-area: box3;height: 250px;
+    }
+   .box4{
+       background-color: gray;
+       font-size: x-large;
+       color: darkgray;
+       padding-left:10px;
+       padding-top: 5px;
+       grid-area: box4;height: 250px;
+    }
+  @media only screen and (max-width:600px){ 
+   #outercont{
+       width:40%;
+       margin:auto;
+       grid-template:"nav "
+       "box1" "box4" "box2" "box3";
+      
+   }
+   .widthnav{
+          height: 70px;
+   }
+   .widthbox{
+       height: 100px;
+   }
+  }
+  @media only screen and (min-width:600px){ 
+    #outercont{
+
+width:50%;
+margin:auto;
+   grid-template: "nav nav"
+                "box1 box3"
+                "box2 box4";
+    
+}
+.widthnav{
+      width: 600px;
+}
+.widthbox{
+   width: 285px;
+}
+}
+@media only screen and (min-width: 992px) {
+    #outercont{
+  border: 1px solid black;
+  width: 100%;
+    grid-template: "nav nav nav nav" 
+                  "box1 box2 box3 box4";
+}
+.widthnav{
+    width:100%;
+   
+    height: 70px;
+   }
+   .widthbox{
+       width: 100%;
+   }
+}
+   
+
+
+
+    </style>
+</head>
+<body>
+    <div id="outercont">
+<div class="Navigation widthnav">Navigation</div>
+<div class="box1 widthbox">Box1</div>
+<div class="box2 widthbox">Box2</div>
+<div class="box3 widthbox">Box3</div>
+<div class="box4 widthbox">Box4</div>
+
+    </div>
+</body>
+</html>
