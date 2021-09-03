@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="city" placeholder="Enter City"/>
+<button onclick="getWeather()">Submit</button>
+
+</body>
+</html>
+<script>
+    async function getCountries(){
+        try{
+        let res =await fetch('https://restcountries.eu/rest/v2/all');
+        let data=await res.json();
+        console.log("data:",data);
+       
+         for(let {name,capital,population} of data){
+          // let {name: custom_var,capital,population} =country;
+            console.log("name,capital,population:",name,capital,population);
+            // console.log("country:",country.name,country.capital,country.population);
+            
+            
+        }
+    
+    }catch(err){
+          console.log("err:",err);
+        }
+    
+    }
+    getCountries();
+</script>

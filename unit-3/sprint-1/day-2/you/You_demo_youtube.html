@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    header{
+
+display: flex;
+text-align: center;
+padding: 1rem;
+
+min-width:100%;
+height: 2rem;
+border: 1px solid black;;
+    }
+
+ .ytlogo{
+    padding: 0;
+    position: relative;
+    top: -30px;
+     width:150px;
+}
+
+form >input{
+width: 100%;
+
+}
+.menu-icons >a>img{
+   
+    
+
+}
+
+</style>
+<body>
+    <header>
+       <a href="#">
+           <img src="./demo_youtube_images/menu_black_24dp.svg" alt="menu icon ">
+       </a>
+       <a href="#"><img class="ytlogo" src="./demo_youtube_images/YouTube-Logo.wine.svg" alt=""></a>
+       <form class="search_bar">
+        <input class="search_input" type="text" id="video" placeholder="Search"/>
+      <button onclick="searchvideos()" class=search_btn><img src="./demo_youtube_images/search_black_24dp.svg" alt=""></button>
+    </form>
+    <div class="menu-icons">
+     <a href="#">
+         <img class="mic_logo" src="./demo_youtube_images/mic_black_24dp.svg" alt="Mic">
+     </a>
+     <a><img src="./demo_youtube_images/apps_black_24dp.svg" alt=""></a>
+     <a href="#">
+         <img src="./demo_youtube_images/video_call_black_24dp.svg" alt="">
+     </a>
+     <a href="#">
+         <img src="./demo_youtube_images/notifications_black_24dp.svg" alt="notification">
+     </a>
+
+
+    </div>
+    </header>
+         
+         </nav>
+</body>
+</html>
+<script>
+    async function searchvideos(){
+        let video =document.getElementById("video").value;
+         // API Key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw
+
+        let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw`);
+        let data =await res.json();
+        console.log("data",data);
+    }        
+</script>

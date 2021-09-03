@@ -54,6 +54,7 @@
         <img id="movie_img">
         <div id="movie_detail">
         <h2 id="h2"></h2>
+        <p id="recomend" >hello</p>
         <p id="date"></p>
         <p id="rating"></p>
         <p id="boxoffice"></p>
@@ -82,9 +83,12 @@
             }
             catch(err){
                 console.log("err:",err);
+                
             }
 
           try{
+
+
               var cont=document.getElementById("display");
               var img=document.getElementById("movie_img");
               img.src=data.Poster;
@@ -92,7 +96,14 @@
              var h2=document.getElementById('h2');
              h2.textContent="Movie name:";
              h2.textContent+=data.Title;
-
+             var recomend=document.getElementById("recomend");
+                recomend.textContent="";
+                console.log((data.Ratings[0].Value>"7.5"));
+             
+                if(data.Ratings[0].Value>"7.5"){
+               
+                recomend.textContent="(Recomended)";
+             }
              var date=document.getElementById('date');
              date.textContent="Released Date:";
              date.textContent+=data.Released;
@@ -128,7 +139,7 @@
           catch(err){
               
             console.log("err:",err);
-
+         
           }
 
         }  
