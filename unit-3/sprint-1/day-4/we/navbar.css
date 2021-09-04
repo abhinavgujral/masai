@@ -1,0 +1,29 @@
+#navbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-left: 4%;
+    padding-right: 4%;
+
+    border: solid 1px black;
+  }
+
+  #options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #options h3 {
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+img{
+    width:30%;
+}
+
+  #data{
+      display: grid;
+      grid-column: 20% 20% 20%;
+      grid-gap:10%;
+  }
