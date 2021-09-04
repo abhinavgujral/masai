@@ -25,15 +25,33 @@
     </header>
          
          </nav>
+
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/oWKgpB2zpgw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<div id="video_div"></div>
+
 </body>
 </html>
 <script>
     async function searchvideos(){
         let video =document.getElementById("video").value;
          // API Key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw
-
-        let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw`);
+         let cont=document.getElementById("video_div");
+        let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=2`);
         let data =await res.json();
         console.log("data",data);
+
+     for(let {id:{videoId}} of data.items){
+         console.log(videoId);
+
+
+         let video_frame=document.createElement("iframe");
+         video_frame.src=`https://www.youtube.com/embed/${videoId}`;
+         video_frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;";
+         cont.appendChild(video_frame);
+          
+        
+     }
+
     }        
 </script>
