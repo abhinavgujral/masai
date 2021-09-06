@@ -74,7 +74,7 @@ width: 450px;
 }
 iframe{
     width: 100%;
-    height: 35%;
+    height: 75%;
 }
 
 #cont>#left{
@@ -161,14 +161,38 @@ iframe{
 </body>
 </html>
 <script>
+
+let video_div=document.querySelector("#video_right");
+async function start(){    
+         let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?&order=viewCount&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=20`);
+        let data =await res.json();                                //&regionCode=356 IN
+        console.log(data);
+        for(let {id:{videoId}} of data.items){
+
+var video_iframe=document.createElement("iframe");
+// video_iframe.setAttribute("class","video_iframe");
+video_iframe.src=`https://www.youtube.com/embed/${videoId}`;
+video_iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;";
+video_div.appendChild(video_iframe);
+}
+}
+      start();   
+    
+   
+
+
     async function searchvideos(e){
         e.preventDefault();
         let video_name =document.getElementById("video").value;
          let video_div=document.querySelector("#video_right");
-        let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video_name}&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=7`);
+
+        let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video_name}&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=20`);
         let data =await res.json();
+         
+
         console.log("data",data);
-  
+        video_div.innerHTML="";
+         
        for(let {id:{videoId}} of data.items){
 
         var video_iframe=document.createElement("iframe");
@@ -178,5 +202,6 @@ iframe{
         video_div.appendChild(video_iframe);
 
        }
-  }        
+  }
+       
 </script>

@@ -23,7 +23,7 @@ input {
 </style>
 <body>
     <h1>Debouncing</h1>
-    <input type="text" oninput="debounce(main,1000)"  id="query"/>
+    <input type="text" oninput="main()"  id="query"/>
     <div id="movies"></div>
 </body>
 <script>
@@ -32,23 +32,24 @@ input {
 //2.search movie by name
 //3. append to dom
 
-var timerid;
+//var timerid;
 let movies_div=document.getElementById('movies');
 
 async function searchMovies(n){
-    let res= await fetch(`https://www.omdbapi.com/?t=${n}&apikey=762167c5`);
+    let res= await fetch(`https://www.omdbapi.com/?s=${n}&apikey=762167c5`);
        let data=await res.json();
-       console.log(data.Search);
        
+       console.log(data);
        return data.Search;
 
 
 }
 
 
-function appendMovies(n){
+function appendMovies(m){
+    console.log(m);
     movies_div.innerText=null;
-    n.forEach(({Title})=>{
+    m.forEach(({Title}) => {
         let p=document.createElement('p');
         p.innerText=Title;
         movies_div.append(p);
@@ -63,7 +64,8 @@ function appendMovies(n){
   
    
    let movies=await searchMovies(name);
- if(movies===undefined){
+ 
+   if(movies===undefined){
     return false;
 }
    appendMovies(movies);
@@ -78,12 +80,12 @@ function appendMovies(n){
    if(name.length<3){
        return false;
    }
-   if(timerId){
+  /*  if(timerId){
        clearTimeout(timerId);
    }
    timerId=setTimeout(()=>{
           func();
-      },delay);
+      },delay); */
         
     }
 
