@@ -164,8 +164,8 @@ iframe{
 
 let video_div=document.querySelector("#video_right");
 async function start(){    
-         let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?&order=viewCount&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=20`);
-        let data =await res.json();                                //&regionCode=356 IN
+         let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?&regionCode=IN&order=viewCount&type=video&key=AIzaSyAYIlVgKFfQoULKTvv2_qGfrfEZKydl_Bw&maxResults=20`);
+        let data =await res.json();                                //&regionCode=356 IN ,chart=mostPopular
         console.log(data);
         for(let {id:{videoId}} of data.items){
 
