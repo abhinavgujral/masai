@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ body{
+     background-color: black;
+
+ }
+
+#cont{
+    margin:auto;
+    width:50%;
+ 
+    color:yellow;
+
+}
+#name{
+    text-align: center;
+}
+#left{
+    margin-right:5%;
+    padding-left: 5%;
+    border-radius: 15%;
+     margin-left: 15%;
+   
+    display: inline-block;
+    width:25%;
+    border: 1px solid yellow;    
+
+}
+#right{
+    padding-left: 5%;
+    border-radius: 15%;
+ 
+display: inline-block;
+width:25%;
+border: 1px solid yellow;
+}
+#go_back{
+    display: block;
+    width:fit-content;
+    margin:10% 0 0 40%;
+    text-decoration: none;
+    color: yellow;
+    border: 1px solid yellow;
+    padding: 3% 5%;
+    border-radius: 10%;
+    height: fit-content;
+
+}
+    </style>
+       
+</head>
+<body>
+    <div id= "cont">
+        <h1 id="name"></h1>
+        <div id="left">
+            <h3>Personal info</h3>
+            <p id="bday">Birth Year:</p>
+            <p id="gender">Gender:</p>
+            <p id="height">height:</p>
+        </div>
+        <div id="right">
+            <h3>Anatomy:</h3><p id="eye">Eye Color:</p><p id="mass">Mass:</p><p id="hair">Hair Color:</p>
+        </div>
+        <a id="go_back" href="./search_star_wars.html">Go Back</a>
+    </div>
+ 
+    
+</body>
+</html>
+<script>
+let name=JSON.parse(localStorage.getItem("selected"));
+    console.log(name);
+    var heading=document.getElementById('name');
+    heading.innerText=name[0];
+
+    name[1].forEach(element => {
+        if(element.name==name[0]){
+            display(element);
+            console.log(element.name); 
+
+        }
+        
+    });
+
+function display(el){
+
+    let left_div=document.getElementById('left');
+    let height=document.getElementById('height');
+    let bday=document.getElementById('bday');
+    let gender=document.getElementById('gender');
+
+    height.innerText+=" "+el.height;
+    bday.innerText+=" "+el.birth_year;
+    gender.innerText+=" "+el.gender;
+
+    
+    let right_div=document.getElementById('right');
+    let eye=document.getElementById('eye');
+    let mass=document.getElementById('mass');
+    let hair=document.getElementById('hair');
+    eye.innerText+=" "+el.eye_color;
+    mass.innerText+=" "+el.mass;
+    hair.innerText+=" "+el.hair_color;
+    
+
+
+}
+
+    
+
+
+
+</script>

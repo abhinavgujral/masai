@@ -23,7 +23,7 @@ input {
 </style>
 <body>
     <h1>Debouncing</h1>
-    <input type="text" oninput="main()"  id="query"/>
+    <input type="text" oninput="debounce(main,1000)"  id="query"/>
     <div id="movies"></div>
 </body>
 <script>
@@ -32,7 +32,7 @@ input {
 //2.search movie by name
 //3. append to dom
 
-//var timerid;
+var timerId;
 let movies_div=document.getElementById('movies');
 
 async function searchMovies(n){
@@ -69,23 +69,23 @@ function appendMovies(m){
     return false;
 }
    appendMovies(movies);
-   console.log("movies",movies);
+  // console.log("movies",movies);
 
     }
    
     function debounce(func,delay) {
-    
-        let name=document.getElementById("query").value;
+    console.log("debounce");
+        let name1=document.getElementById("query").value;
     //console.log("name: ",name);
-   if(name.length<3){
+  /*  if(name1.length<3){
        return false;
-   }
-  /*  if(timerId){
+   } */
+   if(timerId){
        clearTimeout(timerId);
    }
-   timerId=setTimeout(()=>{
+   timerId=setTimeout(() => {
           func();
-      },delay); */
+      },delay);
         
     }
 
