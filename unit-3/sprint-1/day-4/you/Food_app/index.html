@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <link rel="stylesheet" href="./css/navbar.css" class="href">
+<script type="module">
+    import {navbar} from "./components/navbar.js";
+    let div= document.createElement("div");
+    div.innerHTML=navbar();
+    document.body.prepend(div);
 
+   
+
+</script>
 <style>
     
 /* --------nav finished------------ */
@@ -25,24 +33,115 @@
         margin:10% 2% 0 25%;
         width:32%;
     }
+    #input_cont{
+
+max-width: min-content;
+background-color: rgb(160, 150, 139);
+font-size: larger;
+display: block;
+
+/* border-radius: 900px; */
+min-width: 30rem;
+margin:0 0 0 32%;
+}
+
+   
+
+    #display_card_cont{
+        display:flex;
+        max-width: 100%;
+        height: fit-content;
+     
+        margin: 8% ;
+        flex-wrap: wrap;
+        /* display: none;     */
+    }
+    #card{
+        width:30%;
+        margin: 1%;
+        color:rgb(39, 1, 1);
+        font-weight: bold;
+        height: fit-content;
+        box-shadow: 8px 4px 8px 0 rgba(0,0,0,0.2);
+        border:2px solid gray;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+    #display_crad_cont >p{
+        border: 1px solid black;
+        font-size: x-large;
+        padding-left: 5%;
+    }
+    #display_card_cont >h3{
+        border: 1px solid black;
+        font-size: x-large;
+
+    }
+    img{
+          width:100%;
+          height: 50%;      
+        
+    }
+
 </style>
 </head>
 <body>
     
- 
+ <input id="search_input" type="text" placeholder="Search recipes">
+ <input id="seach_button"type="button" onclick="debounce(main,400)" value="Search">
+
+ <div id="main_search_cont"></div>
+
+ <div id="display_card_cont">
+     
+</div>
+
+  
+    <script>
+        var timerId;
+    async function search(search)
+    {
+         let res= await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`);
+          let data= await res.json();
+          console.log("data: ",data);
+          return data;
+              }   
 
 
- <input id="search_input"type="text" placeholder="Search recipes">
- <input id="seach_button"type="button" value="Search">
+          function display(meal_data){
+            console.log("meal",meal_data.meals);
+               meal_data.meals.forEach((el) =>{
+                   let card=document.createElement("div");
+                    card.setAttribute("id","card");
+                let meal_img=document.createElement("img");
+                  meal_img.src=el.strMealThumb;
+                let name=document.createElement("h3");
+                  name.innerText=el.strMeal;
+                  
+                   card.append(meal_img,name);
+                  display_card_cont.appendChild(card);
+                  
+              }
+            );
 
-    <script type="module">
-        import {navbar} from "./components/navbar.js";
-        let div= document.createElement("div");
-        div.innerHTML=navbar();
-        document.body.prepend(div);
+          }
 
+              async function main(input){
+                  let meal_data=await search(input);
+                  
+                      // append_data(meal_data);
+                     display(meal_data);
 
-
-    </script>
+              }    
+              function debounce(func,delay){
+                  let display_cont=document.getElementById("display_card_cont");
+                  display_cont.style.display="flex";
+                 let input=document.getElementById("search_input").value;
+                 if(timerId){
+                   clearTimeout(timerId);
+                 }
+                 timerId=setTimeout(()=>{func(input);},delay);
+              }
+     </script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/navbar.css">
+    <script type="module">
+        import {navbar} from "./components/navbar.js";
+        let div= document.createElement("div");
+        div.innerHTML=navbar();
+        document.body.prepend(div);
+    
+       
+    
+    </script>
+    <style>
+      
+        #Main_cont{
+            text-align: center;
+            padding: 2%;
+            max-width:100%;
+            border: 1px solid black;
+            margin:1% auto;
+            font-size: x-large;
+            background-color: bisque;
+            box-sizing: border-box;
+            height: fit-content;
+           overflow: hidden;
+        }
+        #meal_of_day{
+
+            margin:auto;
+            display :grid;
+            grid-template-columns: 35% 35%;
+            grid-gap: 2%;
+
+        }
+        #main_img{
+          margin:auto;
+          max-width:100%;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="Main_cont">
+    <h1>Meal Of The Day</h1>
+    <img id="main_img"><br>
+    <div id="meal_of_day">
+        
+        
+        <p>Name</p><h3 id="name"></h3>
+        <p>Category</p><p id="category"></p>
+        <p>Country</p><p id="country"></p>
+        <p>Instructions</p> <p id="instructions"></p>
+
+
+    </div>
+</div>
+    <script>
+        async function search()
+    {
+         let res= await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
+          let data= await res.json();
+          console.log("data: ",data);
+          return data;
+              }   
+              async function main(){
+                  let meal_data=await search();
+                            console.log("meal",meal_data);
+                      // append_data(meal_data);
+                    display(meal_data.meals);
+
+              }  
+              
+        function display(meal_data){
+            console.log(meal_data[0].strArea);
+            let meal_img=document.getElementById("main_img");
+                meal_img.src=meal_data[0].strMealThumb;
+            let name=document.getElementById("name");
+                name.innerText=meal_data[0].strMeal;
+            let country=document.getElementById("country");
+                  country.innerText=meal_data[0].strArea;
+            let category=document.getElementById("category");
+                  category.innerText=meal_data[0].strCategory;      
+            let instructions=document.getElementById("instructions");
+                  instructions.innerText=meal_data[0].strInstructions;
+                 
+       
+                }      
+              main();
+       
+
+
+    </script>
+</body>
+</html>
