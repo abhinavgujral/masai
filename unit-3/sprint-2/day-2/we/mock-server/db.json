@@ -1,45 +1,65 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "age": "1089890"
-      },
-      {
-        "id": 2,
-        "active": false
-      },
-      {
-        "id": 3,
-        "name": "Bob Taylor",
-        "age": 45,
-        "active": false
-      }
-    ],
-    "products": [
-      {
-        "id": 1,
-        "name": "Pizza",
-        "price": 10,
-        "active": true
-      },
-      {
-        "id": 2,
-        "name": "Hamburger",
-        "age": 7,
-        "active": true
-      },
-      {
-        "id": 3,
-        "name": "Ice Cream",
-        "age": 2.5,
-        "active": false
-      },
-      {
-        "id": 4,
-        "name": "Chocolate",
-        "price": 6,
-        "active": true
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": 1,
+      "age": "1089890"
+    },
+    {
+      "id": 2,
+      "name": "user4",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "this data has been changed",
+      "active": false
+    },
+    {
+      "id": 4,
+      "name": "Abhinav",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "user3",
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "ABhi",
+      "active": true
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Pizza",
+      "price": 10,
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "dairy milk",
+      "price": 100,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Ice Cream",
+      "age": 2.5,
+      "active": false
+    },
+    {
+      "id": 4,
+      "name": "Chocolate",
+      "price": 6,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "cola",
+      "price": 100,
+      "active": true
+    }
+  ]
+}

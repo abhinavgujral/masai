@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Road to Backend YOU problem</h1>  
+</body>
+</html>
+<script>
+    //1.url
+    //fetch
+
+   async function getusers(){
+   let res =await fetch(`http://localhost:5000/api/users`);
+        let data = await res.json();
+        console.log("GET: ",data);    
+    }
+    //getusers();
+
+
+    async function post_users(){
+        let res= await fetch(`http://localhost:5000/api/users`,{
+            method:"POST",
+            body:JSON.stringify({
+            "id":8,
+            "name":"ABhi",
+            "active":true
+              }),
+              
+  headers:{
+     "Content-Type":"application/json", 
+   
+  },});
+        let data = await res.json();
+        console.log("POST:",data);
+    }
+    //post_users();
+
+
+   async function put_user(){
+        let res= await fetch(`http://localhost:5000/api/users/3`,{
+            method:"PUT",
+            body:JSON.stringify({
+                "id": 3,
+                "name": "this data has been changed",
+            "active": false
+           }),
+
+           headers:{
+     "Content-Type":"application/json", 
+   
+  },
+
+
+    });
+
+    let data=await res.json();
+   console.log("PUT: ",data);
+
+}
+ //put_user();
+
+async function delete_user(){
+    let res= await fetch(`http://localhost:5000/api/users/5`,{
+        method:"DELETE",
+    });
+    let data=await res.json();
+    console.log("DELETE: ",data);
+
+}
+delete_user();
+
+
+</script>
