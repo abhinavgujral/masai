@@ -1,29 +1,30 @@
 package com.Book_author_relation.book_author.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
 public class Book {
+    @ToString.Exclude
     @Id
-   int Book_Id ;
+   Long Book_Id ;
    String name;
     String publication;
     String category;
     String pages;
     int price;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name="Author_Id ")
     Author author;
 
 

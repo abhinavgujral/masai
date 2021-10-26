@@ -20,9 +20,10 @@ public class UserController {
         return userService.findbyid(id);
     }
 
+
     @GetMapping("/users")
     public List<User> getalluser() {
-        List<User> userList = userService.getAllBooks();
+        List<User> userList = userService.getAlluser();
         return userList;
     }
 
@@ -45,6 +46,11 @@ public class UserController {
     @GetMapping("/users/{id}/mail/{mail_id}")
     public String get_email(@PathVariable("id") int id, @PathVariable("mail_id") int mail_id) {
         return userService.getemail(id, mail_id);
+
+    }
+    @PostMapping("/user/{id}/mail")
+    public <email> String create_email(@PathVariable("id") int id, @RequestBody Email email ){
+       return userService.createemail(id,email);
 
     }
 }

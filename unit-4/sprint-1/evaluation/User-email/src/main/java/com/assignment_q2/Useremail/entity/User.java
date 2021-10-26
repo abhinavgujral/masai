@@ -1,9 +1,6 @@
 package com.assignment_q2.Useremail.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,9 +9,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 @Table(uniqueConstraints={@UniqueConstraint(columnNames = {"id","mail_id"})})
 public class User {
     @Id
+    @GeneratedValue
     Integer id;
     String name;
     String phoneNo;

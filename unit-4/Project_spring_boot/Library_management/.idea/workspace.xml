@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1604d82-6759-4c1b-9e99-345786ba42c9" name="Default Changelist" comment="" />
+    <list default="true" id="f1604d82-6759-4c1b-9e99-345786ba42c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Controller/Professor_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Controller/Subject_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Entity/Professor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Entity/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Repository/Professor_repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Repository/Subject_repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Service/Professor_service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/java/com/UniversityDB/Uni_db_manytomany/Service/Subject_service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Uni_db_manytomany/src/main/resources/Universitydata.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Repository/Author_repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Repository/Book_repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Service/Author_service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Service/Book_service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/controller/Author_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/controller/Book_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/resources/user_email.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../unit-2/construct week/startengine.com" beforeDir="false" afterPath="$PROJECT_DIR$/../../../unit-2/construct week/startengine.com" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Entity/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Entity/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../book_author/src/main/java/com/Book_author_relation/book_author/Entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../book_author/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../book_author/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../book_author/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../book_author/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/entity/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/entity/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/java/com/assignment_q2/Useremail/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../sprint-1/evaluation/User-email/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1zfkpByIpnoHvx7gsQBcMZRerfX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../book_author" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1604d82-6759-4c1b-9e99-345786ba42c9" name="Default Changelist" comment="" />
+      <created>1635162936035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635162936035</updated>
+      <workItem from="1635162937781" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>

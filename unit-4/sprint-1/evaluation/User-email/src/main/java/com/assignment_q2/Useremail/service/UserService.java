@@ -1,12 +1,16 @@
 package com.assignment_q2.Useremail.service;
 
+import com.assignment_q2.Useremail.UserEmailApplication;
 import com.assignment_q2.Useremail.entity.Email;
 import com.assignment_q2.Useremail.entity.User;
 import com.assignment_q2.Useremail.repository.EmailRepository;
 import com.assignment_q2.Useremail.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +21,10 @@ public class UserService {
     @Autowired
     EmailRepository emailRepository;
 
-    public List<User> getAllBooks() {
+    static final Logger log= LoggerFactory.getLogger(UserEmailApplication.class);
+
+    public List<User> getAlluser() {
+
         return userRepository.findAll();
     }
 
@@ -55,6 +62,26 @@ public class UserService {
         return email.get().getEmail();
 
 
+    }
+
+    public String createemail(int id, Email email) {
+       try{
+        User user= userRepository.findById(id).get();
+        log.info("User -> {}",user);
+           if(user.getEmail()==null){
+        Email email1=new Email();
+      email1.setEmail(email);
+      email1.setCreated_date(String.valueOf(java.time.LocalDate.now()));
+
+       user.setEmail(email1);
+           log.info("Useremail -> {}",user);
+       return "email registered";}
+           else
+               return "Error";
+    }catch(Exception e)
+       {
+           return "Error";
+       }
     }
 }
 
