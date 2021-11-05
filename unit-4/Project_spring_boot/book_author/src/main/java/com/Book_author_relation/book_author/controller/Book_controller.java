@@ -1,9 +1,15 @@
 package com.Book_author_relation.book_author.controller;
 
+import com.Book_author_relation.book_author.DTO.AuthorDTO;
+import com.Book_author_relation.book_author.DTO.BookDTO;
 import com.Book_author_relation.book_author.Entity.Author;
 import com.Book_author_relation.book_author.Entity.Book;
 import com.Book_author_relation.book_author.Service.Book_service;
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.Path;
@@ -18,22 +24,47 @@ public class Book_controller {
 
 
     @GetMapping("/book")
-    public List<Book> getallbook(){
+    public List<BookDTO> getallbook(){
+
         return book_service.findallbook();
     }
+    //READER
+    @GetMapping("/book/reader")
+    public MappingJacksonValue getallbookreader(){
+
+        SimpleBeanPropertyFilter filter=SimpleBeanPropertyFilter.filterOutAllExcept("name","publication","category","pages","price","author");
+        FilterProvider filters=new SimpleFilterProvider().addFilter("ProductFilter",filter);
+        MappingJacksonValue mapping = new MappingJacksonValue(book_service.findallbook());
+        mapping.setFilters(filters);
+    return mapping;
+    }
+
+    @GetMapping("/book/{id}/reader")
+    public MappingJacksonValue getbookbyid(@PathVariable long id){
+
+        SimpleBeanPropertyFilter filter=SimpleBeanPropertyFilter.filterOutAllExcept("name","publication","category","pages","price","author");
+        FilterProvider filters=new SimpleFilterProvider().addFilter("ProductFilter",filter);
+        MappingJacksonValue mapping = new MappingJacksonValue(book_service.getbookbyid(id));
+        mapping.setFilters(filters);
+        return mapping;
+
+    }
+
+
     @GetMapping("/book/{id}/author")
-    public Author getauthor(@PathVariable long id){
+    public AuthorDTO getauthor(@PathVariable long id){
+
         return book_service.getauthor(id);
 
     }
    @PostMapping("/books/author/{id}")//give book in List<book> format
-    public String addbook(@PathVariable long id, @RequestBody List<Book> book ){
-        return book_service.addbooks(book,id);
+    public String addbook(@PathVariable long id, @RequestBody List<BookDTO> bookdto ){
+        return book_service.addbooks(bookdto,id);
     }
 
     @PutMapping ("bookservice/books")
-    public Book updateBook(@RequestBody Book book){
-        return book_service.updateBook(book);
+    public BookDTO updateBook(@RequestBody BookDTO bookdto){
+        return book_service.updateBook(bookdto);
 
     }
     @DeleteMapping("/bookservice/books/{id}")

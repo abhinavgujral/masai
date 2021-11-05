@@ -1,6 +1,7 @@
 package com.Book_author_relation.book_author.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFilter;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@JsonFilter("ProductFilter")
 public class Book {
     @ToString.Exclude
     @Id

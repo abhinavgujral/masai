@@ -1,11 +1,15 @@
 package com.Book_author_relation.book_author.Service;
 
+import com.Book_author_relation.book_author.DTO.AuthorDTO;
+import com.Book_author_relation.book_author.DTO.BookDTO;
 import com.Book_author_relation.book_author.Entity.Author;
 import com.Book_author_relation.book_author.Entity.Book;
 import com.Book_author_relation.book_author.Repository.Author_repository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,43 +17,65 @@ public class Author_service {
     @Autowired
     Author_repository author_repository;
 
-    public List<Author> findallauthor() {
-        return author_repository.findAll();
+    @Autowired
+    ModelMapper modelMapper;
+    public List<AuthorDTO> findallauthor() {
+
+        List<Author> allauthors=author_repository.findAll();
+        List<AuthorDTO> allauthorDto=new ArrayList<>();
+        AuthorDTO authorDTO=new AuthorDTO();
+        for(Author authors : allauthors){
+            modelMapper.map(authors,authorDTO);
+            allauthorDto.add(authorDTO);
+        }
+        return allauthorDto;
     }
 
-    public Author addauthor(Author author) {
+
+    public AuthorDTO addauthor(AuthorDTO authordto) {
+        Author author=new Author();
+        modelMapper.map(authordto,author);
         try {
             author_repository.save(author);
-            return author;
+            return authordto;
         }catch (Exception e){
             return null ;
         }
     }
 
 
-    public Author updateBook(Author author) {
-       Author author1= author_repository.findById(author.getAuthor_Id()).get();
-       author1.setAddress(author.getAddress());
-       author1.setAge(author.getAge());
-       author1.setName(author.getName());
-       author1.setBooks(author.getBooks());
-       author_repository.save(author1);
-       return author1;
+    public AuthorDTO updateauthor(AuthorDTO authordto) {
+        Author author= new Author();
+
+       Author author1= author_repository.findById(authordto.getAuthor_Id()).get();
+       if(author1!=null) {
+           modelMapper.map(authordto, author1);
+           author_repository.save(author1);
+           return authordto;
+       }
+       return null;
     }
 
     public String deletebyid(Long id) {
         Author author1= author_repository.findById(id).get();
         try{
             author_repository.delete(author1);
-            return "Deleted";
+            return new String("Deleted");
         }
         catch(Exception e){
-            return "Error";
+            return new String("Error");
         }
     }
 
-    public List<Book> getbooksbyauthor(Long id) {
+    public List<BookDTO> getbooksbyauthor(Long id) {
         Author author = author_repository.findById(id).get();
-       return author.getBooks();
+        List<BookDTO> booksdto=new ArrayList<>();
+       BookDTO bookdto=new BookDTO();
+        for(Book books: author.getBooks())
+       {
+           modelMapper.map(books,bookdto);
+           booksdto.add(bookdto);
+       }
+        return booksdto;
     }
 }
