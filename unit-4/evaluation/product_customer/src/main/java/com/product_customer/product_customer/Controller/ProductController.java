@@ -1,5 +1,8 @@
 package com.product_customer.product_customer.Controller;
 
+import com.fasterxml.jackson.databind.ser.FilterProvider;
+import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import com.product_customer.product_customer.DTO.ProductDTO;
 import com.product_customer.product_customer.Entity.ProductEntity;
 import com.product_customer.product_customer.Repository.ProductRepository;
@@ -7,6 +10,7 @@ import com.product_customer.product_customer.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +23,17 @@ public class ProductController {
         public List<ProductEntity> getallproduct(){
         return productService.getproducts();
         }
+        @GetMapping("/products/customer")
+           public ResponseEntity<MappingJacksonValue> getallproduct1(){
+
+             SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price");
+            FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
+            MappingJacksonValue mapping =new MappingJacksonValue(productService.getproducts());
+            mapping.setFilters(filters);
+            return new ResponseEntity<>()Remapping;
+        }
+        @GetMapping("/product/owner")
+        public
         @GetMapping("/product/id")
     public ProductEntity getproductbyid(@PathVariable Long id){
           return productService.getproductbyid(id);

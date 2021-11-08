@@ -1,5 +1,6 @@
 package com.product_customer.product_customer.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import jdk.jfr.DataAmount;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
+@JsonFilter("ProductFilter")
 public class ProductEntity {
     @Id
     Long id ;
