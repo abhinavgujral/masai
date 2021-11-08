@@ -74,8 +74,8 @@ public class ProductController {
     public String deleteproduct(@PathVariable long id){
         return productService.deleteproduct(id);
         }
-        @PostMapping("/product/{id}/owner")
-    public ProductEntity updateproduct(@PathVariable long id,@RequestBody ProductEntity product ){
-        return productService.updateproduct(id,product);
+        @PutMapping("/product/owner")
+    public ProductEntity updateproduct(@RequestBody ProductEntity product ){
+        return productService.updateproduct(product);
         }
 }

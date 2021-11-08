@@ -61,8 +61,8 @@ public class ProductService {
         return "deleted";
     }
 
-    public ProductEntity updateproduct(long id,ProductEntity product) {
-        ProductEntity productEntity=productRepository.findById(id).get();
+    public ProductEntity updateproduct(ProductEntity product) {
+        ProductEntity productEntity=productRepository.findById(product.getId()).get();
         if(productEntity==null)
             throw new NullValue("No such product exist check id");
         productRepository.save(product);
