@@ -19,7 +19,7 @@ import java.util.List;
 public class ProductController {
     @Autowired
     ProductService productService;
-    @GetMapping("/products")
+    @GetMapping("/products/admin")
         public  ResponseEntity<MappingJacksonValue>getallproductadmin() {
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "name", "brand", "category", "price", "registration_number", "manufacturer_id");
         FilterProvider filters = new SimpleFilterProvider().addFilter("ProductFilter", filter);
@@ -46,7 +46,7 @@ public class ProductController {
             return new ResponseEntity<>(mapping,HttpStatus.FOUND);
         }
 
-        @GetMapping("/product/id/customer")
+        @GetMapping("/product/{id}/customer")
     public ResponseEntity<MappingJacksonValue> getproductbyidcustomer(@PathVariable Long id){
             SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price");
             FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
@@ -55,7 +55,7 @@ public class ProductController {
             return new ResponseEntity<>(mapping,HttpStatus.FOUND);
         }
 
-    @GetMapping("/product/id/owner")
+    @GetMapping("/product/{id}/owner")
     public ResponseEntity<MappingJacksonValue> getproductbyidowner(@PathVariable Long id){
 
         SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer_id");
@@ -70,11 +70,11 @@ public class ProductController {
         return productService.addnewproduct(product);
         }
 
-        @DeleteMapping("/product/id/owner")
+        @DeleteMapping("/product/{id}/owner")
     public String deleteproduct(@PathVariable long id){
         return productService.deleteproduct(id);
         }
-        @PostMapping("/product/id/owner")
+        @PostMapping("/product/{id}/owner")
     public ProductEntity updateproduct(@PathVariable long id,@RequestBody ProductEntity product ){
         return productService.updateproduct(id,product);
         }
