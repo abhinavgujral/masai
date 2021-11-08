@@ -23,7 +23,7 @@ public class ProductController {
         public List<ProductEntity> getallproduct(){
         return productService.getproducts();
         }
-        @GetMapping("/products/customer")
+        @GetMapping("/customer/products")
            public ResponseEntity<MappingJacksonValue> getallproductcustomer(){
 
              SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price");
@@ -32,7 +32,7 @@ public class ProductController {
             mapping.setFilters(filters);
             return new ResponseEntity<>(mapping,HttpStatus.FOUND);
         }
-        @GetMapping("/product/owner")
+        @GetMapping("/owner/product")
         public ResponseEntity<MappingJacksonValue> getallproductowner(){
 
             SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer-id");
@@ -61,16 +61,16 @@ public class ProductController {
         return new ResponseEntity<>(mapping,HttpStatus.FOUND);
     }
 
-        @PostMapping("/product")
+        @PostMapping("/product/owner")
     public String addnewproduct(@RequestBody ProductEntity product){
         return productService.addnewproduct(product);
         }
 
-        @DeleteMapping("/product/id")
+        @DeleteMapping("/product/id/owner")
     public String deleteproduct(@PathVariable long id){
         return productService.deleteproduct(id);
         }
-        @PostMapping("/product/id")
+        @PostMapping("/product/id/owner")
     public ProductEntity updateproduct(@PathVariable long id,@RequestBody ProductEntity product ){
         return productService.updateproduct(id,product);
         }
