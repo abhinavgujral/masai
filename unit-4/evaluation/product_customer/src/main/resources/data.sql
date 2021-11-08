@@ -1,1 +1,2 @@
 INSERT INTO PRODUCT_ENTITY VALUES(101,'Skull Candy','Headphones','MAN2546','Skull Candy Headphones',10000.00,'2gh856');
+INSERT INTO PRODUCT_ENTITY VALUES(102,'Synheiser','Headphones','MAN2557','Synheiser Headphones',12000.00,'2gh858');
