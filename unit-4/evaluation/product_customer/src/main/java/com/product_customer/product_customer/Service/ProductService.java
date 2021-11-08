@@ -16,8 +16,8 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-   @Autowired
-    private ModelMapper modelMapper;
+  // @Autowired
+    //private ModelMapper modelMapper;
 
     public List<ProductEntity> getproducts() {
         List<ProductEntity> allproduct=productRepository.findAll();
@@ -46,7 +46,7 @@ public class ProductService {
 
     public ProductEntity updateproduct(long id,ProductEntity product) {
         ProductEntity productEntity=productRepository.findById(id).get();
-        modelMapper.map(product,productEntity);
-        productRepository.save(productEntity);
+        productRepository.save(product);
+        return  product;
     }
 }
