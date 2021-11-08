@@ -16,8 +16,8 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
-//    @Autowired
-   // private ModelMapper modelMapper;
+   @Autowired
+    private ModelMapper modelMapper;
 
     public List<ProductEntity> getproducts() {
         List<ProductEntity> allproduct=productRepository.findAll();
@@ -35,5 +35,18 @@ public class ProductService {
     public String addnewproduct(ProductEntity product) {
         ProductEntity productEntity=productRepository.save(product);
         return "saved";
+    }
+
+
+    public String deleteproduct(long id) {
+        ProductEntity productEntity=productRepository.findById(id).get();
+        productRepository.delete(productEntity);
+        return "deleted";
+    }
+
+    public ProductEntity updateproduct(long id,ProductEntity product) {
+        ProductEntity productEntity=productRepository.findById(id).get();
+        modelMapper.map(product,productEntity);
+        productRepository.save(productEntity);
     }
 }

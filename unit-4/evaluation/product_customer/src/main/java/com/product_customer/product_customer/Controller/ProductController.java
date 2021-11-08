@@ -28,4 +28,13 @@ public class ProductController {
     public String addnewproduct(@RequestBody ProductEntity product){
         return productService.addnewproduct(product);
         }
+
+        @DeleteMapping("/product/id")
+    public String deleteproduct(@PathVariable long id){
+        return productService.deleteproduct(id);
+        }
+        @PostMapping("/product/id")
+    public ProductEntity updateproduct(@PathVariable long id,@RequestBody ProductEntity product ){
+        return productService.updateproduct(id,product);
+        }
 }
