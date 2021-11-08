@@ -55,7 +55,7 @@ public class ProductService {
 
     public String deleteproduct(long id) {
         ProductEntity productEntity=productRepository.findById(id).get();
-        if(productEntity==null)
+       if(productEntity==null)
             throw new NullValue("No such product exist");
         productRepository.delete(productEntity);
         return "deleted";

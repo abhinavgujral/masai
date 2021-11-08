@@ -20,9 +20,13 @@ public class ProductController {
     @Autowired
     ProductService productService;
     @GetMapping("/products")
-        public List<ProductEntity> getallproduct(){
-        return productService.getproducts();
-        }
+        public  ResponseEntity<MappingJacksonValue>getallproductadmin() {
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "name", "brand", "category", "price", "registration_number", "manufacturer_id");
+        FilterProvider filters = new SimpleFilterProvider().addFilter("ProductFilter", filter);
+        MappingJacksonValue mapping = new MappingJacksonValue(productService.getproducts());
+        mapping.setFilters(filters);
+        return new ResponseEntity<>(mapping, HttpStatus.FOUND);
+    }
         @GetMapping("/customer/products")
            public ResponseEntity<MappingJacksonValue> getallproductcustomer(){
 
@@ -35,7 +39,7 @@ public class ProductController {
         @GetMapping("/owner/product")
         public ResponseEntity<MappingJacksonValue> getallproductowner(){
 
-            SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer-id");
+            SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer_id");
             FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
             MappingJacksonValue mapping =new MappingJacksonValue(productService.getproducts());
             mapping.setFilters(filters);
@@ -54,7 +58,7 @@ public class ProductController {
     @GetMapping("/product/id/owner")
     public ResponseEntity<MappingJacksonValue> getproductbyidowner(@PathVariable Long id){
 
-        SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer-id");
+        SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer_id");
         FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
         MappingJacksonValue mapping =new MappingJacksonValue(productService.getproductbyid(id));
         mapping.setFilters(filters);
