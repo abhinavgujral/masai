@@ -24,20 +24,42 @@ public class ProductController {
         return productService.getproducts();
         }
         @GetMapping("/products/customer")
-           public ResponseEntity<MappingJacksonValue> getallproduct1(){
+           public ResponseEntity<MappingJacksonValue> getallproductcustomer(){
 
              SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price");
             FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
             MappingJacksonValue mapping =new MappingJacksonValue(productService.getproducts());
             mapping.setFilters(filters);
-            return new ResponseEntity<>()Remapping;
+            return new ResponseEntity<>(mapping,HttpStatus.FOUND);
         }
         @GetMapping("/product/owner")
-        public
-        @GetMapping("/product/id")
-    public ProductEntity getproductbyid(@PathVariable Long id){
-          return productService.getproductbyid(id);
+        public ResponseEntity<MappingJacksonValue> getallproductowner(){
+
+            SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer-id");
+            FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
+            MappingJacksonValue mapping =new MappingJacksonValue(productService.getproducts());
+            mapping.setFilters(filters);
+            return new ResponseEntity<>(mapping,HttpStatus.FOUND);
         }
+
+        @GetMapping("/product/id/customer")
+    public ResponseEntity<MappingJacksonValue> getproductbyidcustomer(@PathVariable Long id){
+            SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price");
+            FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
+            MappingJacksonValue mapping =new MappingJacksonValue(productService.getproductbyid(id));
+            mapping.setFilters(filters);
+            return new ResponseEntity<>(mapping,HttpStatus.FOUND);
+        }
+
+    @GetMapping("/product/id/owner")
+    public ResponseEntity<MappingJacksonValue> getproductbyidowner(@PathVariable Long id){
+
+        SimpleBeanPropertyFilter filter= SimpleBeanPropertyFilter.filterOutAllExcept("name","brand","category","price","registration_number" ,"manufacturer-id");
+        FilterProvider filters= new SimpleFilterProvider().addFilter("ProductFilter",filter);
+        MappingJacksonValue mapping =new MappingJacksonValue(productService.getproductbyid(id));
+        mapping.setFilters(filters);
+        return new ResponseEntity<>(mapping,HttpStatus.FOUND);
+    }
 
         @PostMapping("/product")
     public String addnewproduct(@RequestBody ProductEntity product){
