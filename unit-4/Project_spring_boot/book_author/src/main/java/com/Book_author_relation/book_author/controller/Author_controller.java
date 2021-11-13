@@ -2,44 +2,45 @@ package com.Book_author_relation.book_author.controller;
 
 import com.Book_author_relation.book_author.DTO.AuthorDTO;
 import com.Book_author_relation.book_author.DTO.BookDTO;
-import com.Book_author_relation.book_author.Entity.Author;
-import com.Book_author_relation.book_author.Entity.Book;
+
 import com.Book_author_relation.book_author.Service.Author_service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class Author_controller {
+
     @Autowired
     Author_service author_service;
 
 
 
         @GetMapping("/author")
-        public List<AuthorDTO> getallauthor(){
-
-            return author_service.findallauthor();
+        public ResponseEntity<List<AuthorDTO>> getallauthor(){
+            return new ResponseEntity<>(author_service.findallauthor(), HttpStatus.FOUND);
         }
         @GetMapping("/author/{id}/books")
-        public List<BookDTO> getbooksbyauthor(@PathVariable Long id)
+        public ResponseEntity<List<BookDTO>> getbooksbyauthor(@PathVariable Long id)
         {
-        return author_service.getbooksbyauthor(id);
+        return new ResponseEntity<>(author_service.getbooksbyauthor(id),HttpStatus.FOUND);
         }
         @PutMapping("/author")
-        public AuthorDTO putauthor(@RequestBody AuthorDTO authordto){
-        return author_service.addauthor(authordto);
+        public ResponseEntity<AuthorDTO> putauthor(@RequestBody AuthorDTO authordto){
+        return new ResponseEntity<>(author_service.addauthor(authordto),HttpStatus.ACCEPTED);
         }
 
         @PostMapping("author")
-        public AuthorDTO updateauthor(@RequestBody AuthorDTO authordto){
-        return author_service.updateauthor(authordto);
+        public ResponseEntity<AuthorDTO> updateauthor(@RequestBody AuthorDTO authordto){
+        return new ResponseEntity<>(author_service.updateauthor(authordto),HttpStatus.ACCEPTED);
 
          }
          @DeleteMapping("/author/{id}")
-         public String deleteauthor(@PathVariable Long id){
-         return author_service.deletebyid(id);
+         public ResponseEntity<String> deleteauthor(@PathVariable Long id){
+         return new ResponseEntity<>(author_service.deletebyid(id),HttpStatus.OK);
 
     }
 }

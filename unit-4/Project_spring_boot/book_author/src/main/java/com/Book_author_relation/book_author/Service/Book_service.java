@@ -1,5 +1,6 @@
 package com.Book_author_relation.book_author.Service;
 
+import com.Book_author_relation.book_author.BookAuthorApplication;
 import com.Book_author_relation.book_author.DTO.AuthorDTO;
 import com.Book_author_relation.book_author.DTO.BookDTO;
 import com.Book_author_relation.book_author.Entity.Author;
@@ -9,9 +10,13 @@ import com.Book_author_relation.book_author.Exception.RepositoryError;
 import com.Book_author_relation.book_author.Repository.Author_repository;
 import com.Book_author_relation.book_author.Repository.Book_repository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,21 +31,30 @@ public class Book_service {
     @Autowired
     ModelMapper modelMapper;
 
+    static final Logger log = LoggerFactory.getLogger(Book_service.class);
+
     public List<BookDTO> findallbook() {
-        List<BookDTO>booksdto=new ArrayList<>();
+
+
         BookDTO bookdto =new BookDTO();
-        for(Book books:book_repository.findAll()){
-            modelMapper.map(books,bookdto);
-        booksdto.add(bookdto);
-        }
-        return booksdto;
+      List<Book> allbooks=book_repository.findAll();
+        log.info("allbooks--.{}",allbooks);
+
+      if(allbooks.isEmpty())
+          throw new RecordNotFound("No record for books");
+
+        ArrayList<BookDTO> allbooksdto= modelMapper.map(allbooks,new TypeToken<List<BookDTO>>() {}.getType());
+            log.info("bookdto--{}",allbooksdto);
+
+        return allbooksdto;
     }
 
     public String addbooks(List<BookDTO> bookdto, long id) {
         try {
             Author author=author_repository.findById(id).get();
+
              if(author==null)
-                 throw new RecordNotFound("Author record doesn't Exist");
+                 throw new RecordNotFound("Author record doesn't Exist for this id");
            List<Book> book=new ArrayList<>();
            modelMapper.map(bookdto,book);
             for(Book b:book) {
@@ -61,7 +75,7 @@ public class Book_service {
 
         Book b1 = book_repository.findById(bookdto.getBook_Id()).get();
         if (b1 == null)
-            throw new RecordNotFound("Book doesn't exist");
+            throw new RecordNotFound("Book doesn't exist check record");
         try {
             Book book = new Book();
             modelMapper.map(bookdto, book);

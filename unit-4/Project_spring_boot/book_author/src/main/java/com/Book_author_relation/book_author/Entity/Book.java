@@ -28,5 +28,16 @@ public class Book {
     @JoinColumn(name="Author_Id ")
     Author author;
 
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "Book_Id=" + Book_Id +
+                ", name='" + name + '\'' +
+                ", publication='" + publication + '\'' +
+                ", category='" + category + '\'' +
+                ", pages='" + pages + '\'' +
+                ", price=" + price +
+                ", author=" + author +
+                '}';
+    }
 }

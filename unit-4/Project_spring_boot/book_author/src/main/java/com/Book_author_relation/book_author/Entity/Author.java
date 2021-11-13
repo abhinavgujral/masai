@@ -1,7 +1,8 @@
 package com.Book_author_relation.book_author.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
 public class Author {
-    //@ToString.Exclude
+
     @Id
     Long Author_Id ;
     String name ;
