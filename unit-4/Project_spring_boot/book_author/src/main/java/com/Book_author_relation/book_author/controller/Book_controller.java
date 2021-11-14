@@ -27,7 +27,6 @@ public class Book_controller {
 
     @GetMapping("/book")
     public ResponseEntity<List<BookDTO>> getallbook(){
-
         return new ResponseEntity<>(book_service.findallbook(), HttpStatus.FOUND);
     }
     //READER

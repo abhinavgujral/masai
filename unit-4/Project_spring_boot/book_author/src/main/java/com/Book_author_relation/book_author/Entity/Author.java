@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@JsonFilter("ProductFilter")
 public class Author {
 
     @Id
